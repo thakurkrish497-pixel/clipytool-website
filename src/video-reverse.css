@@ -1,0 +1,106 @@
+/* ============================================
+   VIDEO REVERSER — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.reverse-bento {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+.card--reverse-preview {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+.card--reverse-upload {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--reverse-settings {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.card--export {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* ---- Reverse Controls ---- */
+.reverse-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+
+.warning-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--r-sm);
+  color: #fcd34d;
+}
+
+.warning-alert svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warning-alert span {
+  font-size: 0.7rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.setting-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setting-row label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.setting-row select {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.setting-row select:focus {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.setting-row select option {
+  background: var(--bg-deep);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .reverse-bento {
+    grid-template-columns: 1fr;
+  }
+  .card--reverse-preview, .card--reverse-upload, .card--reverse-settings, .card--export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

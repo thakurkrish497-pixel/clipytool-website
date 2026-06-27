@@ -10,7 +10,15 @@ const dirs = [
   '/video-cutter/',
   '/video-to-mp4/',
   '/video-speed/',
-  '/video-to-image/'
+  '/video-to-image/',
+  '/video-resize/',
+  '/video-rotate/',
+  '/video-reverse/',
+  '/video-filters/',
+  '/video-merge/',
+  '/video-to-webm/',
+  '/extract-audio/',
+  '/mute-video/'
 ];
 
 const newNav = `  <nav class="nav">
@@ -28,6 +36,14 @@ const newNav = `  <nav class="nav">
           <a href="/video-to-mp4/">Video to MP4</a>
           <a href="/video-speed/">Video Speed</a>
           <a href="/video-to-image/">Video to Image</a>
+          <a href="/video-resize/">Video Resizer</a>
+          <a href="/video-rotate/">Video Rotator</a>
+          <a href="/video-reverse/">Video Reverser</a>
+          <a href="/video-filters/">Video Filters</a>
+          <a href="/video-merge/">Video Merger</a>
+          <a href="/video-to-webm/">Video to WebM</a>
+          <a href="/extract-audio/">Extract Audio</a>
+          <a href="/mute-video/">Mute Video</a>
         </div>
       </div>
     </div>
@@ -45,16 +61,18 @@ for (const dir of dirs) {
   if (fs.existsSync(filePath)) {
     let content = fs.readFileSync(filePath, 'utf8');
     
+    // Remove existing ad container if it exists to prevent duplicates
+    content = content.replace(/<!-- Google Ads Placeholder -->[\s\S]*?<\/div>\s*<\/div>/g, '');
+    content = content.replace(/<div class="ad-container ad-horizontal">[\s\S]*?<\/div>\s*<\/div>/g, '');
+    
     // Replace existing nav
     content = content.replace(/<nav class="nav">[\s\S]*?<\/nav>/, newNav);
     
-    // Some pages might already have it if ran twice, so let's be careful
-    // Actually the regex replaces the whole nav. But the new block has the ad container.
-    // Let's just ensure we don't duplicate ad containers.
-    content = content.replace(/<!-- Google Ads Placeholder -->[\s\S]*?<\/div>\s*<\/div>/g, '');
-    content = content.replace(/<nav class="nav">[\s\S]*?<\/nav>/, newNav);
+    // Fallback: If no nav was replaced (maybe it wasn't there), we don't handle it well here, but all files should have it.
 
     fs.writeFileSync(filePath, content);
     console.log(`Updated ${filePath}`);
+  } else {
+    console.log(`Not found: ${filePath}`);
   }
 }

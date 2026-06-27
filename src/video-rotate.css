@@ -1,0 +1,121 @@
+/* ============================================
+   VIDEO ROTATOR — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.rotate-bento {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+.card--rotate-preview {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+.card--rotate-upload {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--rotate-settings {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.card--export {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* ---- Rotate Controls ---- */
+.rotate-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px 20px 20px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control-group label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.action-grid {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-sm);
+  color: var(--text-secondary);
+  transition: all var(--t-fast) var(--ease);
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.action-btn:active {
+  transform: scale(0.97);
+}
+
+.btn-reset {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.btn-reset:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Preview Transform ---- */
+.rotate-preview-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.video-stage__player {
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .rotate-bento {
+    grid-template-columns: 1fr;
+  }
+  .card--rotate-preview, .card--rotate-upload, .card--rotate-settings, .card--export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

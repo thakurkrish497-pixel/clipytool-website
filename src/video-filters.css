@@ -1,0 +1,165 @@
+/* ============================================
+   VIDEO FILTERS — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.filters-bento {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+.card--filters-preview {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+.card--filters-upload {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--filters-settings {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.card--export {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* ---- Filter Controls ---- */
+.filters-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px 20px 20px;
+}
+
+.preset-filters {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-filter {
+  flex: 1;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xs);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.btn-filter:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.btn-filter.active {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: var(--text-primary);
+}
+
+.sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-header label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.slider-header span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Range Sliders */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  border: 2px solid var(--bg-deep);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+  transition: box-shadow var(--t-fast) var(--ease);
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+}
+
+.btn-reset {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all var(--t-fast) var(--ease);
+}
+
+.btn-reset:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Preview ---- */
+.video-stage__player {
+  transition: filter 0.3s ease;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .filters-bento {
+    grid-template-columns: 1fr;
+  }
+  .card--filters-preview, .card--filters-upload, .card--filters-settings, .card--export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

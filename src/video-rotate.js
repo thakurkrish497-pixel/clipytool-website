@@ -1,0 +1,263 @@
+import { FFmpeg } from '@ffmpeg/ffmpeg';
+import { fetchFile, toBlobURL } from '@ffmpeg/util';
+
+const state = {
+  videoFile: null,
+  videoURL: null,
+  ffmpeg: null,
+  ffmpegLoaded: false,
+  isProcessing: false,
+  rotation: 0,
+  flipH: false,
+  flipV: false
+};
+
+const dom = {
+  videoPlayer:   document.getElementById('videoPlayer'),
+  videoEmpty:    document.getElementById('videoEmpty'),
+  previewWrapper:document.getElementById('previewWrapper'),
+  videoControls: document.getElementById('videoControls'),
+  btnPlayPause:  document.getElementById('btnPlayPause'),
+  iconPlay:      document.getElementById('iconPlay'),
+  iconPause:     document.getElementById('iconPause'),
+  seekBar:       document.getElementById('seekBar'),
+  seekFill:      document.getElementById('seekFill'),
+  timeDisplay:   document.getElementById('timeDisplay'),
+
+  dropzoneVid:   document.getElementById('dropzoneVid'),
+  fileInputVid:  document.getElementById('fileInputVid'),
+  fileInfoVid:   document.getElementById('fileInfoVid'),
+  fileNameVid:   document.getElementById('fileNameVid'),
+  fileDetailsVid:document.getElementById('fileDetailsVid'),
+  btnChangeVid:  document.getElementById('btnChangeVid'),
+
+  btnRotLeft:    document.getElementById('btnRotLeft'),
+  btnRotRight:   document.getElementById('btnRotRight'),
+  btnFlipH:      document.getElementById('btnFlipH'),
+  btnFlipV:      document.getElementById('btnFlipV'),
+  btnReset:      document.getElementById('btnReset'),
+
+  btnExport:     document.getElementById('btnExport'),
+  exportNote:    document.getElementById('exportNote'),
+  exportBtnText: document.getElementById('exportBtnText'),
+  exportFill:    document.getElementById('exportFill'),
+};
+
+function init() {
+  setupVideoUpload();
+  setupVideoControls();
+  setupRotateControls();
+  setupExport();
+}
+
+function setupVideoUpload() {
+  dom.dropzoneVid.addEventListener('click', () => dom.fileInputVid.click());
+  dom.btnChangeVid.addEventListener('click', () => dom.fileInputVid.click());
+  dom.fileInputVid.addEventListener('change', (e) => {
+    if (e.target.files[0]) loadVideo(e.target.files[0]);
+  });
+  dom.dropzoneVid.addEventListener('dragover', (e) => { e.preventDefault(); dom.dropzoneVid.classList.add('dragover'); });
+  dom.dropzoneVid.addEventListener('dragleave', () => dom.dropzoneVid.classList.remove('dragover'));
+  dom.dropzoneVid.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dom.dropzoneVid.classList.remove('dragover');
+    if (e.dataTransfer.files[0] && e.dataTransfer.files[0].type.startsWith('video/')) {
+      loadVideo(e.dataTransfer.files[0]);
+    }
+  });
+}
+
+function loadVideo(file) {
+  state.videoFile = file;
+  if (state.videoURL) URL.revokeObjectURL(state.videoURL);
+  state.videoURL = URL.createObjectURL(file);
+
+  dom.videoPlayer.src = state.videoURL;
+  dom.videoPlayer.onloadedmetadata = () => {
+    dom.fileNameVid.textContent = file.name;
+    dom.fileDetailsVid.textContent = `${(file.size / 1024 / 1024).toFixed(1)} MB`;
+
+    dom.dropzoneVid.style.display = 'none';
+    dom.fileInfoVid.style.display = 'flex';
+    dom.videoEmpty.style.display = 'none';
+    dom.previewWrapper.style.display = 'flex';
+    dom.videoControls.style.display = 'flex';
+
+    resetTransforms();
+    updateExportState();
+    preloadFFmpeg();
+  };
+}
+
+function setupVideoControls() {
+  const vid = dom.videoPlayer;
+  dom.btnPlayPause.addEventListener('click', () => vid.paused ? vid.play() : vid.pause());
+  vid.addEventListener('play', () => { dom.iconPlay.style.display = 'none'; dom.iconPause.style.display = 'block'; });
+  vid.addEventListener('pause', () => { dom.iconPlay.style.display = 'block'; dom.iconPause.style.display = 'none'; });
+
+  vid.addEventListener('timeupdate', () => {
+    if (!vid.duration) return;
+    const pct = (vid.currentTime / vid.duration) * 100;
+    dom.seekFill.style.width = pct + '%';
+    dom.seekBar.value = (vid.currentTime / vid.duration) * 1000;
+    dom.timeDisplay.textContent = `${fmtTime(vid.currentTime)} / ${fmtTime(vid.duration)}`;
+  });
+  dom.seekBar.addEventListener('input', (e) => vid.currentTime = (e.target.value / 1000) * vid.duration);
+}
+
+function fmtTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60).toString().padStart(2, '0');
+  return `${m}:${sec}`;
+}
+
+function setupRotateControls() {
+  dom.btnRotLeft.addEventListener('click', () => {
+    state.rotation -= 90;
+    applyTransforms();
+  });
+
+  dom.btnRotRight.addEventListener('click', () => {
+    state.rotation += 90;
+    applyTransforms();
+  });
+
+  dom.btnFlipH.addEventListener('click', () => {
+    state.flipH = !state.flipH;
+    applyTransforms();
+  });
+
+  dom.btnFlipV.addEventListener('click', () => {
+    state.flipV = !state.flipV;
+    applyTransforms();
+  });
+
+  dom.btnReset.addEventListener('click', resetTransforms);
+}
+
+function resetTransforms() {
+  state.rotation = 0;
+  state.flipH = false;
+  state.flipV = false;
+  applyTransforms();
+}
+
+function applyTransforms() {
+  const scaleX = state.flipH ? -1 : 1;
+  const scaleY = state.flipV ? -1 : 1;
+  dom.videoPlayer.style.transform = `rotate(${state.rotation}deg) scaleX(${scaleX}) scaleY(${scaleY})`;
+}
+
+function updateExportState() {
+  dom.btnExport.disabled = !state.videoFile || state.isProcessing;
+  dom.exportNote.textContent = state.videoFile ? 'Ready to export' : 'Upload a video to get started';
+}
+
+async function preloadFFmpeg() {
+  if (state.ffmpegLoaded) return;
+  try {
+    state.ffmpeg = new FFmpeg();
+    const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm';
+    await state.ffmpeg.load({
+      coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+      wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+    });
+    state.ffmpegLoaded = true;
+  } catch (err) {
+    console.error('FFmpeg load error:', err);
+  }
+}
+
+function setupExport() {
+  dom.btnExport.addEventListener('click', processVideo);
+}
+
+async function processVideo() {
+  if (!state.videoFile || state.isProcessing) return;
+  
+  state.isProcessing = true;
+  updateExportState();
+  dom.exportFill.style.width = '0%';
+  dom.exportFill.classList.add('active');
+
+  try {
+    if (!state.ffmpegLoaded) await preloadFFmpeg();
+    const ffmpeg = state.ffmpeg;
+
+    ffmpeg.on('progress', ({ progress }) => {
+      const p = Math.min(Math.round(progress * 100), 100);
+      dom.exportFill.style.width = p + '%';
+      dom.exportBtnText.textContent = `Processing... ${p}%`;
+    });
+
+    const ext = state.videoFile.name.split('.').pop().toLowerCase() || 'mp4';
+    const inputName = `input.${ext}`;
+    const outName = `output.mp4`;
+    
+    dom.exportBtnText.textContent = 'Reading file...';
+    await ffmpeg.writeFile(inputName, await fetchFile(state.videoFile));
+
+    // Construct VF chain
+    let vf = [];
+    let rot = state.rotation % 360;
+    if (rot < 0) rot += 360;
+
+    if (rot === 90) vf.push('transpose=1');
+    else if (rot === 180) vf.push('transpose=1,transpose=1');
+    else if (rot === 270) vf.push('transpose=2');
+
+    if (state.flipH) vf.push('hflip');
+    if (state.flipV) vf.push('vflip');
+
+    dom.exportBtnText.textContent = 'Applying transforms...';
+    
+    let args = ['-i', inputName];
+    if (vf.length > 0) {
+      args.push('-vf', vf.join(','));
+      args.push('-c:v', 'libx264');
+      args.push('-c:a', 'copy');
+    } else {
+      // If nothing selected, just copy
+      args.push('-c:v', 'copy', '-c:a', 'copy');
+    }
+    args.push(outName);
+
+    await ffmpeg.exec(args);
+
+    dom.exportBtnText.textContent = 'Saving...';
+    const data = await ffmpeg.readFile(outName);
+    const blob = new Blob([data.buffer], { type: 'video/mp4' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    const baseName = state.videoFile.name.replace(/\.[^/.]+$/, '');
+    a.download = `${baseName}_rotated.mp4`;
+    a.click();
+
+    await ffmpeg.deleteFile(inputName);
+    await ffmpeg.deleteFile(outName);
+
+    dom.exportBtnText.textContent = 'Done ✓';
+    dom.exportFill.style.width = '100%';
+    dom.exportFill.style.background = 'rgba(239, 68, 68, 0.2)';
+
+    setTimeout(() => {
+      dom.exportBtnText.textContent = 'Apply Rotation';
+      dom.exportFill.style.width = '0%';
+      dom.exportFill.style.background = '';
+      dom.exportFill.classList.remove('active');
+      state.isProcessing = false;
+      updateExportState();
+    }, 3000);
+
+  } catch (err) {
+    console.error(err);
+    dom.exportBtnText.textContent = 'Error - try again';
+    dom.exportFill.classList.remove('active');
+    state.isProcessing = false;
+    setTimeout(() => { dom.exportBtnText.textContent = 'Apply Rotation'; updateExportState(); }, 3000);
+  }
+}
+
+init();
