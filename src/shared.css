@@ -233,7 +233,7 @@ input[type="file"] {
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 1fr 1fr minmax(170px, auto);
   gap: var(--gap);
   padding: 20px 40px 16px;
   flex: 1;
@@ -911,6 +911,14 @@ input[type="file"] {
     gap: 16px;
   }
 
+  /* Optimize mobile card order for tools where preview and upload are both visible */
+  .card--upload,
+  .card--wm-upload-vid,
+  .card--resize-upload,
+  .card--merge-upload {
+    order: -1;
+  }
+
   .card {
     min-height: 0;
   }
@@ -1013,11 +1021,13 @@ input[type="file"] {
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  height: 56px;
+  min-height: 56px;
+  height: auto;
   background: rgba(15, 17, 21, 0.82);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all var(--t-normal) var(--ease);
 }
 
 .nav__logo {
@@ -1161,7 +1171,6 @@ input[type="file"] {
 /* When nav is present, bento needs different top padding */
 .has-nav .bento {
   padding-top: 16px;
-  max-height: calc(100vh - 170px);
 }
 
 .has-nav .footer {
@@ -1293,7 +1302,7 @@ input[type="file"] {
 }
 
 @media (max-width: 640px) {
-  .nav { padding: 0 16px; height: 50px; }
+  .nav { padding: 10px 16px; min-height: 50px; height: auto; }
   .nav__link { padding: 6px 12px; font-size: 0.7rem; }
   .cross-link { margin: 4px 16px 0; flex-direction: column; gap: 4px; }
   .faq { padding: 6px 16px 6px; }
