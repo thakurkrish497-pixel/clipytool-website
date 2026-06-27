@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video to Image / Screenshot — Extract Frames | Clipy Studio</title>
+  <meta name="description"
+    content="Extract high-quality screenshots or a full image sequence (JPG/PNG) from your video instantly. 100% private." />
+  <meta name="keywords" content="video to image, video screenshot, extract frames, video to jpg, video to png" />
+  <link rel="canonical" href="/video-to-image/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
+  <link rel="stylesheet" href="/src/shared.css" />
+  <link rel="stylesheet" href="/src/video-to-image.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Video to Image Extractor",
+    "description": "Extract high-quality screenshots or a full image sequence (JPG/PNG) from your video instantly.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+
+<body class="has-nav">
+
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+    <div class="mesh-blob blob-4"></div>
+  </div>
+
+  <!-- Navigation -->
+      <nav class="nav">
+    <a href="/" class="nav__logo">Clipy Studio<span class="dot">.</span></a>
+    <div class="nav__links">
+      <a href="/" class="nav__link">Home</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-btn">Tools <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+        <div class="nav__dropdown-content">
+          <a href="/crop/">Crop Video</a>
+          <a href="/watermark/">Watermark Video</a>
+          <a href="/video-to-gif/">Video to GIF</a>
+          <a href="/gif-maker/">GIF Maker</a>
+          <a href="/video-cutter/">Video Cutter</a>
+          <a href="/video-to-mp4/">Video to MP4</a>
+          <a href="/video-speed/">Video Speed</a>
+          <a href="/video-to-image/">Video to Image</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Google Ads Placeholder -->
+  <div class="ad-container ad-horizontal">
+    <div class="ad-placeholder">Advertisement (728x90)</div>
+  </div>
+
+  
+
+  <!-- Bento Grid -->
+  <main class="bento v2i-bento" id="bentoGrid">
+
+    <!-- Card 1: Video Preview -->
+    <section class="card card--v2i-preview" id="cardPreview">
+      <div class="card__label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        <span>Preview &amp; Seek</span>
+      </div>
+      
+      <div class="video-stage" id="videoStage">
+        <div class="video-empty" id="videoEmpty">
+          <div class="video-empty__icon">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <p class="video-empty__title">No video loaded</p>
+          <p class="video-empty__sub">Upload a video to extract frames</p>
+        </div>
+        <video id="videoPlayer" playsinline preload="metadata"></video>
+      </div>
+
+      <div class="video-controls" id="videoControls">
+        <button class="vc-btn" id="btnPlayPause" type="button">
+          <svg id="iconPlay" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <svg id="iconPause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        </button>
+        <div class="vc-seek-wrapper">
+          <input type="range" class="vc-seek" id="seekBar" min="0" max="1000" value="0" step="1" />
+          <div class="vc-seek-fill" id="seekFill"></div>
+        </div>
+        <span class="vc-time" id="timeDisplay">0:00 / 0:00</span>
+      </div>
+
+      <!-- Sequence Trimmer (hidden if Single Frame mode) -->
+      <div class="trim-controls" id="trimControls" style="display: none;">
+        <div class="trim-input-group">
+          <label>Start Time (s)</label>
+          <input type="number" id="trimStart" value="0" min="0" step="0.1" />
+          <button type="button" class="btn-use-current" id="btnUseCurrentStart">Use current</button>
+        </div>
+        <div class="trim-input-group">
+          <label>End Time (s)</label>
+          <input type="number" id="trimEnd" value="0" min="0" step="0.1" />
+          <button type="button" class="btn-use-current" id="btnUseCurrentEnd">Use current</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Card 2: Upload Video -->
+    <section class="card card--v2i-upload" id="cardUpload">
+      <div class="card__label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span>Video File</span>
+      </div>
+      <div class="dropzone" id="dropzoneVid">
+        <div class="dropzone__ring">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+        </div>
+        <p class="dropzone__title">Drop video here</p>
+        <p class="dropzone__sub">MP4, WebM, MOV, AVI</p>
+      </div>
+      <div class="file-info" id="fileInfoVid">
+        <div class="file-info__icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div class="file-info__meta">
+          <p class="file-info__name" id="fileNameVid">video.mp4</p>
+          <p class="file-info__details" id="fileDetailsVid">1920×1080</p>
+        </div>
+        <button class="btn-change" id="btnChangeVid" type="button">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          Change
+        </button>
+      </div>
+      <input type="file" id="fileInputVid" accept="video/*" />
+    </section>
+
+    <!-- Card 3: Extraction Settings -->
+    <section class="card card--v2i-settings" id="cardSettings">
+      <div class="card__label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Extraction Settings</span>
+      </div>
+      <div class="v2i-settings-grid">
+        <label class="v2i-setting-row">
+          <span>Mode</span>
+          <select id="v2iMode">
+            <option value="single" selected>Single Screenshot (Current Time)</option>
+            <option value="sequence">Image Sequence (ZIP)</option>
+          </select>
+        </label>
+        <label class="v2i-setting-row" id="rowFps" style="display:none;">
+          <span>Framerate</span>
+          <select id="v2iFps">
+            <option value="1">1 Frame per sec</option>
+            <option value="5" selected>5 Frames per sec</option>
+            <option value="10">10 Frames per sec</option>
+            <option value="24">24 Frames per sec</option>
+          </select>
+        </label>
+        <label class="v2i-setting-row">
+          <span>Format</span>
+          <select id="v2iFormat">
+            <option value="jpg" selected>JPG (Smaller)</option>
+            <option value="png">PNG (Lossless)</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <!-- Card 4: Export -->
+    <section class="card card--v2i-export" id="cardExport">
+      <div class="card__label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>Export</span>
+      </div>
+      <div class="export-area">
+        <p class="export-note" id="exportNote">Upload a video to get started</p>
+        <button class="btn-export" id="btnExport" disabled type="button">
+          <div class="btn-export__fill" id="exportFill"></div>
+          <span class="btn-export__content" id="exportBtnContent">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span id="exportBtnText">Extract Image</span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="/src/video-to-image.js"></script>
+</body>
+
+</html>

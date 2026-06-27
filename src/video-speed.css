@@ -1,0 +1,83 @@
+/* ============================================
+   VIDEO SPEED — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.vs-bento {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+
+.card--vs-preview {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+.card--vs-upload {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--vs-settings {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.card--vs-export {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* ---- Settings Grid ---- */
+.vs-settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+
+.vs-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.vs-setting-row span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.vs-setting-row select {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.vs-setting-row select:focus {
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.vs-setting-row select option {
+  background: var(--bg-deep);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .vs-bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .card--vs-preview, .card--vs-upload, .card--vs-settings, .card--vs-export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clipy Studio — Free Browser-Based Video Tools | Crop & Watermark</title>
+  <meta name="description"
+    content="Free online video tools that run entirely in your browser. Crop video aspect ratios, add watermarks — all private, no uploads, no limits. Powered by FFmpeg.wasm." />
+  <meta name="keywords" content="free video tools, online video editor, crop video, add watermark, browser video tool, privacy video editor" />
+  <link rel="canonical" href="/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
+  <link rel="stylesheet" href="/src/shared.css" />
+  <link rel="stylesheet" href="/src/landing.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Clipy Studio",
+    "url": "https://clipystudio.com",
+    "description": "Free browser-based video tools. Crop aspect ratios and add watermarks — all private, no uploads.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "/{search_term_string}/",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Ambient Mesh Gradient Background -->
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+    <div class="mesh-blob blob-4"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero__badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span>100% Private — Runs in your browser</span>
+    </div>
+    <h1 class="hero__title">
+      <span class="hero__logo">Clipy Studio<span class="dot">.</span></span>
+      <span class="hero__subtitle">Free Video Tools,<br/>In Your Browser</span>
+    </h1>
+    <p class="hero__desc">
+      Privacy-first tools powered by WebAssembly. Your videos <strong>never leave your device</strong> —
+      no uploads, no servers, no limits.
+    </p>
+  </section>
+
+  <!-- Tool Cards -->
+  <main class="tools-grid" id="toolsGrid">
+
+    <!-- Crop Tool Card -->
+    <a href="/crop/" class="tool-card" id="toolCrop">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/>
+            <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Video Crop Tool</h2>
+      <p class="tool-card__desc">Instantly change video aspect ratio with a perfect center crop. Convert between landscape and portrait in seconds.</p>
+      <ul class="tool-card__features">
+        <li>16:9 ↔ 9:16 conversion</li>
+        <li>Live crop preview</li>
+        <li>Perfect center crop math</li>
+        <li>Keeps original quality</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Crop Tool</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- Watermark Tool Card -->
+    <a href="/watermark/" class="tool-card" id="toolWatermark">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon tool-card__icon--wm">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Watermark Tool</h2>
+      <p class="tool-card__desc">Add your logo or custom text watermark to any video. Full control over position, opacity, and size.</p>
+      <ul class="tool-card__features">
+        <li>Image &amp; text watermarks</li>
+        <li>9-point positioning</li>
+        <li>Adjustable opacity &amp; scale</li>
+        <li>Live preview overlay</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Watermark Tool</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- Video to GIF Card -->
+    <a href="/video-to-gif/" class="tool-card" id="toolVidToGif">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+            <line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/>
+            <line x1="17" y1="7" x2="22" y2="7"/><line x1="17" y1="17" x2="22" y2="17"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Video to GIF</h2>
+      <p class="tool-card__desc">Convert any video into a high-quality animated GIF. Supports MP4, WebM, and MOV formats.</p>
+      <ul class="tool-card__features">
+        <li>Adjust framerate &amp; quality</li>
+        <li>Select precise start/end times</li>
+        <li>Optimized for web sharing</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Video to GIF</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- GIF Maker Card -->
+    <a href="/gif-maker/" class="tool-card" id="toolGifMaker">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">GIF Maker</h2>
+      <p class="tool-card__desc">Create animated GIFs by combining multiple static images (JPG, PNG). Adjust frame delay effortlessly.</p>
+      <ul class="tool-card__features">
+        <li>Combine multiple images</li>
+        <li>Adjust frame delay times</li>
+        <li>Preserves transparency</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open GIF Maker</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- Video Cutter Card -->
+    <a href="/video-cutter/" class="tool-card" id="toolCutter">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Video Cutter</h2>
+      <p class="tool-card__desc">Trim and cut specific parts of a video online. Remove unwanted sections quickly without re-encoding.</p>
+      <ul class="tool-card__features">
+        <li>Visual timeline scrubber</li>
+        <li>Fast trim mode (no re-encode)</li>
+        <li>Precise millisecond cuts</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Video Cutter</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- Video to MP4 Card -->
+    <a href="/video-to-mp4/" class="tool-card" id="toolToMp4">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Video to MP4</h2>
+      <p class="tool-card__desc">Convert any video format (MOV, AVI, WebM, MKV) to highly compatible MP4 format instantly.</p>
+      <ul class="tool-card__features">
+        <li>Supports 20+ video formats</li>
+        <li>H.264 optimization</li>
+        <li>No file size limits</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Converter</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- Video Speed Card -->
+    <a href="/video-speed/" class="tool-card" id="toolSpeed">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Video Speed</h2>
+      <p class="tool-card__desc">Slow down or speed up videos easily. Create smooth slow-motion or hyper-lapse effects in your browser.</p>
+      <ul class="tool-card__features">
+        <li>0.25x to 4x speed adjustment</li>
+        <li>Preserve pitch option</li>
+        <li>Maintains high framerate</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Speed Tool</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+    <!-- Video to Image Card -->
+    <a href="/video-to-image/" class="tool-card" id="toolVidToImg">
+      <div class="tool-card__icon-area">
+        <div class="tool-card__icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+          </svg>
+        </div>
+        <span class="tool-card__badge">Free</span>
+      </div>
+      <h2 class="tool-card__title">Video to Image</h2>
+      <p class="tool-card__desc">Extract an image sequence or high-quality screenshots from your videos. Export as JPG or PNG.</p>
+      <ul class="tool-card__features">
+        <li>Capture exact frames</li>
+        <li>Extract full image sequences</li>
+        <li>Lossless PNG output</li>
+      </ul>
+      <div class="tool-card__cta">
+        <span>Open Video to Image</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </a>
+
+  </main>
+
+  <!-- Features Strip -->
+  <section class="features" id="features" aria-label="Features">
+    <div class="feature">
+      <div class="feature__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h3 class="feature__title">Private</h3>
+      <p class="feature__desc">No data ever leaves your device</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3 class="feature__title">Fast</h3>
+      <p class="feature__desc">Powered by WASM, runs at near-native speed</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3 class="feature__title">Free</h3>
+      <p class="feature__desc">No limits, no sign-ups, no hidden fees</p>
+    </div>
+    <div class="feature">
+      <div class="feature__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3 class="feature__title">Universal</h3>
+      <p class="feature__desc">Works in any modern browser</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer landing-footer">
+    <div class="footer__lock">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <p>All processing happens locally. Your videos never leave your device.</p>
+  </footer>
+
+  <script type="module" src="/src/landing.js"></script>
+</body>
+
+</html>

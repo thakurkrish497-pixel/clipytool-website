@@ -1,0 +1,330 @@
+/* ============================================
+   LANDING PAGE — Styles
+   ============================================ */
+
+/* ---- Hero Section ---- */
+.hero {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 40px 48px;
+  gap: 20px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-indigo);
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 30px;
+  letter-spacing: 0.02em;
+  animation: fadeIn 0.6s var(--ease) both;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.6s var(--ease) 0.1s both;
+}
+
+.hero__logo {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.hero__logo .dot {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__subtitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  color: var(--text-secondary);
+}
+
+.hero__desc {
+  max-width: 520px;
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  animation: fadeIn 0.6s var(--ease) 0.2s both;
+}
+
+.hero__desc strong {
+  color: var(--text-secondary);
+}
+
+
+/* ---- Tool Cards Grid ---- */
+.tools-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 40px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  background: var(--bg-card);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--border-card);
+  border-radius: var(--r-card);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: all var(--t-normal) var(--ease);
+  animation: fadeIn 0.6s var(--ease) 0.3s both;
+}
+
+.tool-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* Top highlight */
+.tool-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  pointer-events: none;
+}
+
+.tool-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.tool-card__icon-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tool-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-indigo);
+  transition: all var(--t-normal) var(--ease);
+}
+
+.tool-card__icon--wm {
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--accent-violet);
+}
+
+.tool-card:hover .tool-card__icon {
+  background: rgba(99, 102, 241, 0.18);
+  transform: scale(1.05);
+}
+
+.tool-card:hover .tool-card__icon--wm {
+  background: rgba(168, 85, 247, 0.18);
+}
+
+.tool-card__badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.tool-card__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.tool-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: -4px;
+}
+
+.tool-card__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tool-card__features li {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  padding-left: 18px;
+  position: relative;
+}
+
+.tool-card__features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-indigo);
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.tool-card__cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-indigo);
+  transition: gap var(--t-normal) var(--ease);
+}
+
+.tool-card:hover .tool-card__cta {
+  gap: 10px;
+}
+
+
+/* ---- Features Strip ---- */
+.features {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 0 40px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s var(--ease) 0.5s both;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 20px 12px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-card);
+  border-radius: var(--r-btn);
+  transition: all var(--t-normal) var(--ease);
+}
+
+.feature:hover {
+  border-color: var(--border-card-hover);
+  background: var(--bg-card-hover);
+}
+
+.feature__icon {
+  color: var(--accent-indigo);
+  opacity: 0.7;
+}
+
+.feature__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.feature__desc {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+
+/* ---- Landing Footer Override ---- */
+.landing-footer {
+  padding: 20px 40px 28px;
+}
+
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero {
+    padding: 48px 24px 32px;
+  }
+
+  .hero__logo {
+    font-size: 2.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    padding: 0 24px 20px;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 36px 16px 24px;
+  }
+
+  .hero__logo {
+    font-size: 2rem;
+  }
+
+  .tools-grid {
+    padding: 0 16px 16px;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 16px 16px;
+    gap: 10px;
+  }
+
+  .tool-card {
+    padding: 22px;
+  }
+}

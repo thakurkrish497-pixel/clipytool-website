@@ -1,0 +1,91 @@
+/* ============================================
+   VIDEO CUTTER — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.vc-bento {
+  grid-template-columns: 1fr 340px;
+  grid-template-rows: auto auto;
+}
+
+.card--vc-preview {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.card--vc-upload {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--vc-export {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ---- Trim Controls ---- */
+.trim-controls {
+  display: flex;
+  gap: 16px;
+  padding: 12px 20px 20px;
+}
+
+.trim-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trim-input-group label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.trim-input-group input[type="number"] {
+  width: 100%;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.trim-input-group input[type="number"]:focus {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.btn-use-current {
+  background: none;
+  border: none;
+  color: #f59e0b;
+  font-size: 0.65rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  opacity: 0.8;
+  transition: opacity var(--t-fast) var(--ease);
+}
+
+.btn-use-current:hover {
+  opacity: 1;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .vc-bento {
+    grid-template-columns: 1fr;
+  }
+  .card--vc-preview, .card--vc-upload, .card--vc-export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

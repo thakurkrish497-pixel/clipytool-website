@@ -1,0 +1,77 @@
+/* ============================================
+   VIDEO TO MP4 — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.v2m-bento {
+  grid-template-columns: 1fr 340px;
+  grid-template-rows: auto auto;
+}
+
+.card--v2m-upload {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.card--v2m-settings {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--v2m-export {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ---- Settings Grid ---- */
+.v2m-settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+
+.v2m-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.v2m-setting-row span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.v2m-setting-row select {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.v2m-setting-row select:focus {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.v2m-setting-row select option {
+  background: var(--bg-deep);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .v2m-bento {
+    grid-template-columns: 1fr;
+  }
+  .card--v2m-upload, .card--v2m-settings, .card--v2m-export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

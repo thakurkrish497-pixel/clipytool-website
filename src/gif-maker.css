@@ -1,0 +1,173 @@
+/* ============================================
+   GIF MAKER — Specific Styles
+   ============================================ */
+
+/* ---- Bento Grid Layout ---- */
+.gm-bento {
+  grid-template-columns: 1fr 340px;
+  grid-template-rows: auto auto;
+}
+
+.card--gm-upload {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.card--gm-settings {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.card--gm-export {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ---- Image Sequence Grid ---- */
+.gm-sequence {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  padding: 0 20px 20px;
+}
+
+.gm-thumb {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--bg-deep);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.gm-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gm-thumb__num {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.gm-thumb__remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.gm-thumb:hover .gm-thumb__remove {
+  opacity: 1;
+}
+
+.gm-sequence-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 20px;
+}
+
+.gm-count {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: var(--r-xs);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ---- Settings ---- */
+.gm-settings-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 20px 20px;
+}
+
+.gm-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gm-setting-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.gm-setting-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.gm-setting-sub {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+.gm-setting-row select {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-xs);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.gm-setting-row select:focus {
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.gm-setting-row select option {
+  background: var(--bg-deep);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .gm-bento {
+    grid-template-columns: 1fr;
+  }
+  .card--gm-upload, .card--gm-settings, .card--gm-export {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
