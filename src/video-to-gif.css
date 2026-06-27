@@ -4,27 +4,27 @@
 
 /* ---- Bento Grid Layout ---- */
 .vtg-bento {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  
+  
 }
 
 .card--vtg-preview {
-  grid-column: 1;
+  grid-column: 1 / 3;
   grid-row: 1 / 4;
 }
 
 .card--vtg-upload {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 1;
 }
 
 .card--vtg-settings {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 2;
 }
 
 .card--vtg-export {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 3;
 }
 
