@@ -127,13 +127,14 @@
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
-  .v2i-bento {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+@media (max-width: 1024px) {
+  main.bento {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    height: auto !important;
   }
-  .card--v2i-preview, .card--v2i-upload, .card--v2i-settings, .card--v2i-export {
-    grid-column: 1;
-    grid-row: auto;
+  .card {
+    grid-column: 1 !important;
+    grid-row: auto !important;
   }
 }

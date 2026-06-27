@@ -154,12 +154,14 @@ input[type=range]::-webkit-slider-thumb:hover {
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
-  .filters-bento {
-    grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+  main.bento {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    height: auto !important;
   }
-  .card--filters-preview, .card--filters-upload, .card--filters-settings, .card--export {
-    grid-column: 1;
-    grid-row: auto;
+  .card {
+    grid-column: 1 !important;
+    grid-row: auto !important;
   }
 }
