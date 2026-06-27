@@ -233,12 +233,11 @@ input[type="file"] {
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr minmax(170px, auto);
+  grid-template-rows: auto auto auto;
   gap: var(--gap);
   padding: 20px 40px 16px;
   flex: 1;
-  min-height: 0;
-  max-height: calc(100vh - 140px);
+  min-height: calc(100vh - 140px);
 }
 
 
