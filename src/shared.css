@@ -1107,7 +1107,14 @@ input[type="file"] {
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 
-.nav__dropdown:hover .nav__dropdown-content {
+@media (hover: hover) {
+  .nav__dropdown:hover .nav__dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+.nav__dropdown--open .nav__dropdown-content {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

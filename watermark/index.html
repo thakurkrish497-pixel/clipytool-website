@@ -124,6 +124,24 @@
     </div>
   </nav>
 
+  <script id="dropdownScript">
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.querySelector('.nav__dropdown-btn');
+      const dropdown = document.querySelector('.nav__dropdown');
+      if(btn && dropdown) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          dropdown.classList.toggle('nav__dropdown--open');
+        });
+        document.addEventListener('click', (e) => {
+          if(!dropdown.contains(e.target)) {
+            dropdown.classList.remove('nav__dropdown--open');
+          }
+        });
+      }
+    });
+  </script>
+
   
 
   
