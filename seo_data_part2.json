@@ -1,0 +1,192 @@
+{
+  "video-speed": {
+    "slug": "/video-speed",
+    "title": "Change Video Speed Online (Free & Fast) | Clipy Studio",
+    "desc": "Easily change video speed online right in your browser. Speed up video for time-lapses or slow down video for dramatic slow-motion. 100% private.",
+    "h1": "Change Video Speed Online",
+    "intro": "Alter the pace of your footage in seconds. Whether you want to slow down video for a cinematic effect or speed up video for a quick tutorial, our browser-based tool makes it effortless. Completely free and totally private.",
+    "howToTitle": "How to Speed Up or Slow Down Video",
+    "howTo": [
+      {
+        "t": "Load your clip",
+        "d": "Bring your video into our secure workspace."
+      },
+      {
+        "t": "Adjust the multiplier",
+        "d": "Choose a preset (like 0.5x for slow-mo or 2x for fast-forward) to change video speed online."
+      },
+      {
+        "t": "Export your new video",
+        "d": "Save the speed-adjusted file instantly back to your device."
+      }
+    ],
+    "whyTitle": "Why Use Our Slow-Motion Video Editor?",
+    "whyDesc": "Forget downloading clunky software just to tweak playback timing. Our platform acts as a powerful slow-motion video editor and hyper-lapse creator built entirely on WebAssembly. It’s blazing fast, completely free, and guarantees that your original files never leave your computer.",
+    "faqs": [
+      {
+        "q": "How do I create hyper-lapse online?",
+        "a": "To create hyper-lapse online, simply upload your video and choose a high speed multiplier (like 4x or 8x) to condense long footage into a rapid, engaging clip."
+      },
+      {
+        "q": "Will I lose audio if I slow down video?",
+        "a": "No, our tool safely adjusts both the video frames and the audio track, ensuring they stay synced whether you speed up video or slow it down."
+      },
+      {
+        "q": "Is my footage safe when I change video speed online?",
+        "a": "100% safe. Everything processes locally on your own machine. We do not use cloud servers, so your private videos remain strictly yours."
+      }
+    ]
+  },
+  "video-to-image": {
+    "slug": "/video-to-image",
+    "title": "Extract Frames from Video (Browser-Based) | Clipy Studio",
+    "desc": "Easily extract frames from video entirely in your browser. Convert video to PNG sequence, capture screenshots online, or save video frames as JPG. Free & private!",
+    "h1": "Extract Frames from Video",
+    "intro": "Pull the perfect thumbnail or create an entire image sequence in seconds. Our free browser tool lets you securely extract frames from video files without any quality loss. It’s fast, limitless, and never uploads your files to the cloud.",
+    "howToTitle": "How to Capture Screenshots Online",
+    "howTo": [
+      {
+        "t": "Upload your video",
+        "d": "Drag your file into the secure workspace."
+      },
+      {
+        "t": "Choose your frame rate",
+        "d": "Decide how many frames you want to pull per second (e.g., 1 FPS for thumbnails, 30 FPS for full sequences)."
+      },
+      {
+        "t": "Export images",
+        "d": "Save video frames as JPG or PNG instantly in a bundled ZIP file."
+      }
+    ],
+    "whyTitle": "Why Use Our Image Extraction Tool?",
+    "whyDesc": "Trying to manually pause a video player to capture screenshots online often results in blurry, compressed images. Our dedicated tool programmatically reads your file locally to extract frames from video at their original, pristine quality. It’s blazing fast and completely private.",
+    "faqs": [
+      {
+        "q": "Can I convert video to PNG sequence for animation?",
+        "a": "Yes! Our tool is highly popular with animators and editors who need to convert video to PNG sequence. It outputs a clean, lossless batch of images ready for your timeline."
+      },
+      {
+        "q": "Is it possible to save video frames as JPG instead?",
+        "a": "Absolutely. You can easily toggle your output format to save video frames as JPG, which is ideal if you need smaller file sizes or quick web thumbnails."
+      },
+      {
+        "q": "Do I need to upload my video to capture screenshots online?",
+        "a": "Never. Thanks to our WebAssembly technology, the entire extraction process runs directly on your device, ensuring maximum speed and total privacy."
+      }
+    ]
+  },
+  "video-resize": {
+    "slug": "/video-resize",
+    "title": "Resize Video Online (Change Resolution Free) | Clipy Studio",
+    "desc": "Quickly resize video online and change video resolution for free. Upscale video or downscale video size for social media instantly right in your browser.",
+    "h1": "Resize Video Online (Fast & Private)",
+    "intro": "Need to adapt your footage for different screens? Our free browser tool lets you easily change video resolution and resize video online in seconds. Because it runs locally on your device, you can downscale video size or upscale footage without any slow server uploads.",
+    "howToTitle": "How to Change Video Resolution Online",
+    "howTo": [
+      {
+        "t": "Upload your file",
+        "d": "Drag your video directly into the secure browser interface."
+      },
+      {
+        "t": "Select your dimensions",
+        "d": "Choose a quick percentage preset (like 50% or 75%) or type in exact pixels to resize for social media."
+      },
+      {
+        "t": "Export instantly",
+        "d": "Click process and our local engine will instantly resize your video."
+      }
+    ],
+    "whyTitle": "Why Use Our Free Video Resizer?",
+    "whyDesc": "Large video files take forever to upload to standard cloud editors. Clipy Studio bypasses the cloud entirely using WebAssembly. This allows you to resize video online instantly using your own hardware, guaranteeing absolute privacy and blazing-fast processing speeds.",
+    "faqs": [
+      {
+        "q": "Can I downscale video size to save storage space?",
+        "a": "Yes! If your file is too large, you can easily downscale video size by reducing the resolution (e.g., from 4K to 1080p)."
+      },
+      {
+        "q": "Is it possible to upscale video here?",
+        "a": "Absolutely. You can upscale video by manually entering larger dimensions into the width and height boxes, though we recommend maintaining the original aspect ratio to avoid stretching."
+      },
+      {
+        "q": "Is this the best way to resize for social media?",
+        "a": "Yes. By letting you manually set pixel dimensions, you can perfectly resize for social media platforms like Instagram, TikTok, or YouTube Shorts."
+      }
+    ]
+  },
+  "video-rotate": {
+    "slug": "/video-rotate",
+    "title": "Rotate Video Online & Flip Horizontally | Clipy Studio",
+    "desc": "Fix sideways video instantly. Rotate video online for free or flip video horizontally in your browser. 100% private, no uploads or watermarks!",
+    "h1": "Rotate Video Online",
+    "intro": "Did you accidentally record in the wrong orientation? Fix sideways video instantly with our secure browser tool. Whether you need to rotate video 90 degrees or flip video horizontally, you can do it locally on your device in seconds for free.",
+    "howToTitle": "How to Rotate or Flip Video Online",
+    "howTo": [
+      {
+        "t": "Select your video",
+        "d": "Drop your upside-down or sideways footage into our editor."
+      },
+      {
+        "t": "Choose your rotation",
+        "d": "Click to rotate video 90 degrees clockwise/counter-clockwise, or apply a horizontal or vertical flip."
+      },
+      {
+        "t": "Apply and save",
+        "d": "Export your corrected video back to your device instantly."
+      }
+    ],
+    "whyTitle": "Why Use Our Secure Video Rotator?",
+    "whyDesc": "You shouldn't have to upload your personal moments to a remote server just to fix sideways video. Our platform uses WebAssembly to process your media entirely on your own device. This ensures you can rotate video online with zero upload delays and 100% privacy.",
+    "faqs": [
+      {
+        "q": "Can I flip video horizontally like a mirror?",
+        "a": "Yes! Our tool includes a mirror function that lets you flip video horizontally, which is perfect for correcting selfie-camera footage."
+      },
+      {
+        "q": "How do I rotate video 90 degrees?",
+        "a": "Simply upload your clip and click the left or right rotation arrow. One click will perfectly rotate video 90 degrees."
+      },
+      {
+        "q": "Does this tool support a vertical flip?",
+        "a": "Yes, along with rotation and horizontal mirroring, you can apply a vertical flip to turn your footage upside down entirely for creative effects."
+      }
+    ]
+  },
+  "video-reverse": {
+    "slug": "/video-reverse",
+    "title": "Reverse Video Online (Free & Private) | Clipy Studio",
+    "desc": "Play video backward instantly with our free browser video reverser. Reverse video and audio safely online with zero server uploads required.",
+    "h1": "Reverse Video Online",
+    "intro": "Create mind-bending effects by making your footage run backward. Our free browser video reverser lets you easily play video backward without downloading heavy software. Because it runs locally, you can reverse video and audio instantly with complete privacy.",
+    "howToTitle": "How to Play Video Backward",
+    "howTo": [
+      {
+        "t": "Load your footage",
+        "d": "Drag and drop your clip into the secure workspace."
+      },
+      {
+        "t": "Check your settings",
+        "d": "Ensure the preview looks correct."
+      },
+      {
+        "t": "Process and export",
+        "d": "Hit export to instantly reverse video online and download the backward file."
+      }
+    ],
+    "whyTitle": "Why Use Our Free Browser Video Reverser?",
+    "whyDesc": "Applying a reverse effect usually requires professional desktop editing software or sketchy cloud sites. Clipy Studio brings professional-grade reversing directly to your browser via WebAssembly. It’s a blazing-fast free browser video reverser that never touches a cloud server.",
+    "faqs": [
+      {
+        "q": "Does this tool reverse video and audio together?",
+        "a": "Yes! Our engine is designed to seamlessly reverse video and audio tracks simultaneously, so your final clip sounds as trippy as it looks."
+      },
+      {
+        "q": "How long does it take to reverse video online?",
+        "a": "Because it processes locally, it’s incredibly fast. You bypass all upload and download times, making it the fastest way to play video backward."
+      },
+      {
+        "q": "Is there a cost to use this free browser video reverser?",
+        "a": "None at all. It is 100% free with no limits, no watermarks, and no sign-ups required."
+      }
+    ]
+  }
+}

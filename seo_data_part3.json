@@ -1,0 +1,192 @@
+{
+  "video-filters": {
+    "slug": "/video-filters",
+    "title": "Color Grade Video Online (Free Filters) | Clipy Studio",
+    "desc": "Apply cinematic effects and color grade video online instantly. Adjust video brightness, apply grayscale to video, and change contrast online for free.",
+    "h1": "Color Grade Video Online",
+    "intro": "Enhance your footage with professional aesthetic filters right in your browser. Our secure tool lets you easily adjust video brightness, apply grayscale to video, or fine-tune color grading. 100% free, private, and lightning fast.",
+    "howToTitle": "How to Apply Browser Color Grading",
+    "howTo": [
+      {
+        "t": "Upload your video",
+        "d": "Place your footage into the local workspace."
+      },
+      {
+        "t": "Tweak your colors",
+        "d": "Use the sliders to change contrast online, tweak saturation, or instantly apply grayscale to video."
+      },
+      {
+        "t": "Export the final look",
+        "d": "Click save to render your color-graded video at blazing speeds."
+      }
+    ],
+    "whyTitle": "Why Color Grade Video Online With Us?",
+    "whyDesc": "Unlike other browser color grading tools that require you to upload large RAW or MP4 files to the cloud, our platform processes everything locally using WebAssembly. This means you can adjust video brightness and experiment with filters in real-time, completely privately.",
+    "faqs": [
+      {
+        "q": "Can I change contrast online without losing video quality?",
+        "a": "Yes. Our engine applies your visual filters while maintaining the high resolution and framerate of your original file."
+      },
+      {
+        "q": "How do I easily apply grayscale to video?",
+        "a": "Simply upload your video and slide the saturation slider all the way down to instantly apply grayscale to video for a classic black-and-white look."
+      },
+      {
+        "q": "Is it safe to adjust video brightness of private family videos here?",
+        "a": "Absolutely. We offer total privacy because your video files are never uploaded to our servers during the editing process."
+      }
+    ]
+  },
+  "video-merge": {
+    "slug": "/video-merge",
+    "title": "Merge Videos Online (Join Clips Free) | Clipy Studio",
+    "desc": "Combine multiple videos instantly with our private, lossless video merger. Join video clips together right in your browser. Fast, secure, and no uploads!",
+    "h1": "Merge Videos Online",
+    "intro": "Easily stitch your footage together into one seamless movie. Our free tool lets you combine multiple videos directly in your browser. It serves as a secure, fast, and often lossless video merger that never uploads your files to a cloud server.",
+    "howToTitle": "How to Join Video Clips Together",
+    "howTo": [
+      {
+        "t": "Import your clips",
+        "d": "Drag and drop all the video files you want to merge into the workspace."
+      },
+      {
+        "t": "Arrange the order",
+        "d": "Drag the files to rearrange them into the perfect sequence."
+      },
+      {
+        "t": "Merge and export",
+        "d": "Click merge to instantly join video clips together on your device."
+      }
+    ],
+    "whyTitle": "Why Use Our Browser-Based Lossless Video Merger?",
+    "whyDesc": "Uploading multiple large video files to standard online mergers can take hours. Clipy Studio processes your files locally using WebAssembly. This allows you to combine multiple videos instantly, ensuring a secure, private, and blazing-fast workflow.",
+    "faqs": [
+      {
+        "q": "Can I combine multiple videos of different formats?",
+        "a": "Yes! Our engine can take various formats like MP4, MOV, and WebM and seamlessly join video clips together into a single unified file."
+      },
+      {
+        "q": "Is this a true lossless video merger?",
+        "a": "If your input clips share the exact same codec and resolution, our tool can often merge videos online without re-encoding, preserving 100% of the original quality."
+      },
+      {
+        "q": "Is there a file size limit to merge videos online?",
+        "a": "No. Because the merging happens on your local machine, you are only limited by your own computer's memory, completely bypassing cloud server restrictions."
+      }
+    ]
+  },
+  "video-to-webm": {
+    "slug": "/video-to-webm",
+    "title": "Free Video to WebM Converter (Fast & Private) | Clipy Studio",
+    "desc": "Create VP9 video instantly with our Video to WebM converter. Convert MP4 to WebM or convert video to transparent WebM entirely in your browser.",
+    "h1": "Fast Video to WebM Converter",
+    "intro": "Optimize your videos for the web by switching to the highly efficient WebM format. Our free browser tool lets you convert MP4 to WebM or create VP9 video files in seconds. Because it runs locally, your footage remains 100% private.",
+    "howToTitle": "How to Convert MP4 to WebM Online",
+    "howTo": [
+      {
+        "t": "Add your video",
+        "d": "Drag your MP4, MOV, or other video file into the secure interface."
+      },
+      {
+        "t": "Select your settings",
+        "d": "Choose your quality settings to create VP9 video for optimal web delivery."
+      },
+      {
+        "t": "Export WebM",
+        "d": "Click convert to process your video instantly on your device."
+      }
+    ],
+    "whyTitle": "Why Use Our Video to WebM Converter?",
+    "whyDesc": "WebM is the gold standard for HTML5 video, but converting large files via cloud services is slow and risks your privacy. By leveraging local WebAssembly technology, you can convert video to transparent WebM or standard WebM directly in your browser with zero upload times.",
+    "faqs": [
+      {
+        "q": "Can I convert video to transparent WebM?",
+        "a": "Yes! If your original footage contains an alpha channel (like an animated MOV file), our tool can easily convert video to transparent WebM for web overlays."
+      },
+      {
+        "q": "Why should I create VP9 video?",
+        "a": "VP9 is a highly efficient codec used by YouTube and modern browsers. Using our tool to create VP9 video ensures your files are smaller and load faster without sacrificing visual quality."
+      },
+      {
+        "q": "Is it safe to convert MP4 to WebM here?",
+        "a": "Completely. Your MP4 never leaves your computer, ensuring a 100% private conversion process."
+      }
+    ]
+  },
+  "extract-audio": {
+    "slug": "/extract-audio",
+    "title": "Extract Audio from Video Online (Free to MP3/WAV) | Clipy Studio",
+    "desc": "Pull sound tracks instantly! Extract audio from video online with our private Video to MP3 converter. Save video as WAV or extract lossless audio for free.",
+    "h1": "Extract Audio from Video Online",
+    "intro": "Need to save a song, podcast, or voiceover from a video clip? Our free browser tool lets you easily pull sound and extract audio from video online. Because it processes locally, it’s the fastest, most secure Video to MP3 converter available.",
+    "howToTitle": "How to Pull Sound from Video",
+    "howTo": [
+      {
+        "t": "Upload your file",
+        "d": "Drop your video into our secure, upload-free workspace."
+      },
+      {
+        "t": "Choose audio format",
+        "d": "Select whether you want a compressed MP3 or want to save video as WAV."
+      },
+      {
+        "t": "Extract and download",
+        "d": "Click export to instantly strip the audio track and download it."
+      }
+    ],
+    "whyTitle": "Why Use Our Video to MP3 Converter?",
+    "whyDesc": "Many online audio extractors are filled with spam and require you to upload your files to unknown servers. Our platform uses WebAssembly to extract lossless audio right on your computer. It’s a blazing-fast, 100% private way to rip audio tracks.",
+    "faqs": [
+      {
+        "q": "Can I extract lossless audio from my video?",
+        "a": "Yes. If you choose the WAV output option, our tool will save video as WAV, preserving the uncompressed, original quality of the audio track."
+      },
+      {
+        "q": "Is this a free Video to MP3 converter?",
+        "a": "Absolutely. You can extract audio from video online to the MP3 format completely free, with no hidden limits or sign-ups."
+      },
+      {
+        "q": "Will it take long to pull sound from a large video?",
+        "a": "No, because the process skips uploading entirely, stripping the audio track locally takes only seconds."
+      }
+    ]
+  },
+  "mute-video": {
+    "slug": "/mute-video",
+    "title": "Mute Video Online (Remove Audio Track) | Clipy Studio",
+    "desc": "Silence video online instantly for free. Remove background noise and delete audio track from video securely in your browser. 100% private, no uploads!",
+    "h1": "Mute Video Online",
+    "intro": "Got distracting background sounds in your footage? Our free browser tool lets you instantly remove background noise and mute video online. Because it processes locally on your device, you can delete audio tracks privately and securely.",
+    "howToTitle": "How to Delete Audio Track from Video",
+    "howTo": [
+      {
+        "t": "Import your video",
+        "d": "Drag and drop your noisy video into our secure editor."
+      },
+      {
+        "t": "Apply mute",
+        "d": "The tool automatically prepares to silence video online."
+      },
+      {
+        "t": "Export silent file",
+        "d": "Click export to instantly render and save your newly muted video."
+      }
+    ],
+    "whyTitle": "Why Mute Video Online With Clipy Studio?",
+    "whyDesc": "Uploading a personal video to the cloud just to remove background noise is a massive privacy risk and a waste of time. Our tool utilizes local WebAssembly processing to safely delete audio track from video files. It guarantees absolute privacy and lightning-fast exports.",
+    "faqs": [
+      {
+        "q": "Does this tool completely silence video online?",
+        "a": "Yes. It completely strips the audio channels from your file, ensuring absolute silence for your final export."
+      },
+      {
+        "q": "Will I lose video quality when I remove background noise?",
+        "a": "Not at all. Our tool simply deletes the audio stream, leaving your original video quality completely untouched."
+      },
+      {
+        "q": "Is it safe to delete audio track from video files here?",
+        "a": "100% safe. Your video never leaves your device, so you can mute video online with complete peace of mind."
+      }
+    ]
+  }
+}

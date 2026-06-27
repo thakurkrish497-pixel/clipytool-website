@@ -1,0 +1,230 @@
+{
+  "crop": {
+    "slug": "/crop",
+    "title": "Crop Video Online Free & Private | Clipy Studio",
+    "desc": "Instantly crop video online and change your video aspect ratio (16:9 to 9:16). 100% private free browser cropper—no uploads or sign-ups required.",
+    "h1": "Crop Video Online (Free & Secure)",
+    "intro": "Need to center crop a video for social media? Our free browser cropper lets you easily change video aspect ratios from 16:9 to 9:16 in seconds. Because everything runs locally in your browser, your files remain 100% private and are never uploaded to any servers.",
+    "howToTitle": "How to Crop Video Online",
+    "howTo": [
+      {
+        "t": "Select your file",
+        "d": "Drag and drop your video directly into the browser."
+      },
+      {
+        "t": "Choose the aspect ratio",
+        "d": "Select a preset (like 9:16 for Reels/TikTok) or adjust the frame to center crop your video perfectly."
+      },
+      {
+        "t": "Export instantly",
+        "d": "Click export to process your video locally at blazing-fast speeds."
+      }
+    ],
+    "whyTitle": "Why Use Our Free Browser Cropper?",
+    "whyDesc": "Unlike traditional video editors that force you to wait for slow server uploads, Clipy Studio uses advanced WebAssembly (WASM) technology. This means you can crop video online instantly using your own device's processing power. There are no file size limits, no hidden fees, and absolute privacy guaranteed.",
+    "faqs": [
+      {
+        "q": "Can I convert a 16:9 landscape video to 9:16 vertical?",
+        "a": "Yes! Our tool is specifically designed to convert 16:9 to 9:16 effortlessly. Just upload your landscape video, select the 9:16 preset, and drag the frame to center crop the video on your subject."
+      },
+      {
+        "q": "Is it safe to change my video aspect ratio here?",
+        "a": "Absolutely. We offer a 100% private environment. When you change a video aspect ratio on Clipy Studio, the file never leaves your computer. All processing happens right inside your browser."
+      },
+      {
+        "q": "Does this free browser cropper leave a watermark?",
+        "a": "No. Our video crop tool is completely free and will never force a watermark onto your exported files."
+      }
+    ]
+  },
+  "watermark": {
+    "slug": "/watermark",
+    "title": "Add Watermark to Video Online (No Upload) | Clipy Studio",
+    "desc": "Securely add a watermark to video online for free. Add a logo to video or create a custom text watermark video right in your browser. 100% private.",
+    "h1": "Add Watermark to Video Online",
+    "intro": "Protect your content in seconds with our secure video watermark tool. Whether you need to add a logo to video files or create a custom text watermark video, you can do it all instantly. Your files are processed entirely in your browser with zero server uploads required.",
+    "howToTitle": "How to Add Watermark to Video Online",
+    "howTo": [
+      {
+        "t": "Load your video",
+        "d": "Choose the file you want to protect. It stays securely on your device."
+      },
+      {
+        "t": "Add text or logo",
+        "d": "Type your custom text or upload an image to add a logo to the video. Adjust the size, opacity, and position."
+      },
+      {
+        "t": "Apply and save",
+        "d": "Hit export to render your secure video watermark at lightning speed."
+      }
+    ],
+    "whyTitle": "Why Use Our Secure Video Watermark Tool?",
+    "whyDesc": "When protecting sensitive or unreleased content, privacy is paramount. Because Clipy Studio operates entirely offline within your browser via WebAssembly, it is the safest way to add a watermark to video online. There are zero uploads, no cloud processing, and absolutely no risk of your intellectual property being intercepted.",
+    "faqs": [
+      {
+        "q": "Can I add a custom text watermark to my video?",
+        "a": "Yes, you can easily create a custom text watermark video. You have full control over the font, size, color, transparency, and positioning to ensure your brand is represented perfectly."
+      },
+      {
+        "q": "How do I add a logo to a video without losing quality?",
+        "a": "Simply upload your PNG or JPG logo file into our tool and place it over your video. Our processor maintains your original video's high resolution and framerate during the export."
+      },
+      {
+        "q": "Do you store my videos when I use this tool?",
+        "a": "No upload means no storage. Our tool provides a completely secure video watermark experience. Everything happens locally on your machine, so we never see, store, or have access to your files."
+      }
+    ]
+  },
+  "video-to-gif": {
+    "slug": "/video-to-gif",
+    "title": "Free Video to GIF Converter (Fast & Private) | Clipy Studio",
+    "desc": "Turn videos into animations with our fast Video to GIF Converter. Convert MP4 to GIF or WebM to GIF entirely in your browser. Create high-quality GIFs online!",
+    "h1": "Fast Video to GIF Converter",
+    "intro": "Make an animated GIF from a video in just a few clicks. Our browser-based Video to GIF converter is blazing fast, entirely free, and supports everything from MP4 to WebM files. Create high-quality GIFs online without ever uploading your personal videos to the cloud.",
+    "howToTitle": "How to Make an Animated GIF from Video",
+    "howTo": [
+      {
+        "t": "Select your video",
+        "d": "Import your clip directly into the browser to begin."
+      },
+      {
+        "t": "Trim and tweak",
+        "d": "Choose the exact start and end times for your animation. Adjust the frame rate and quality settings."
+      },
+      {
+        "t": "Convert to GIF",
+        "d": "Click export and our tool will instantly convert your video to a looping GIF."
+      }
+    ],
+    "whyTitle": "Why Use Our Video to GIF Converter?",
+    "whyDesc": "Most online converters have strict file size limits and painfully slow upload times. By utilizing local WebAssembly processing, our Video to GIF converter completely bypasses server uploads. This means you can convert heavy MP4s or WebMs to GIFs instantly, with unlimited usage, zero subscriptions, and complete data privacy.",
+    "faqs": [
+      {
+        "q": "Can I convert MP4 to GIF using this tool?",
+        "a": "Yes! Our platform is the perfect way to convert MP4 to GIF. It seamlessly reads your MP4 file locally and outputs a lightweight, shareable animated GIF."
+      },
+      {
+        "q": "How can I create a high-quality GIF online without huge file sizes?",
+        "a": "Our tool lets you balance quality and file size. To create a high-quality GIF online that loads quickly, try reducing the frame rate (FPS) or lowering the output resolution before exporting."
+      },
+      {
+        "q": "Does it support converting WebM to GIF?",
+        "a": "Absolutely. Alongside standard MP4s and MOVs, you can easily drop a WebM file into our browser tool to convert WebM to GIF seamlessly."
+      }
+    ]
+  },
+  "gif-maker": {
+    "slug": "/gif-maker",
+    "title": "Free GIF Maker Online (Private & Fast) | Clipy Studio",
+    "desc": "Make a GIF from images instantly with our free GIF Maker Online. Combine JPG to GIF or PNG to GIF directly in your browser. 100% private, no uploads!",
+    "h1": "Free GIF Maker Online",
+    "intro": "Turn your static images into dynamic animations instantly. Our private GIF Maker Online lets you combine multiple photos into a looping GIF without ever uploading your personal files to a server. It’s the fastest, most secure way to create animations right in your browser.",
+    "howToTitle": "How to Make a GIF from Images",
+    "howTo": [
+      {
+        "t": "Upload your photos",
+        "d": "Select and drop your image sequence into the browser."
+      },
+      {
+        "t": "Tweak the timing",
+        "d": "Easily adjust frame delay to control exactly how fast your animation plays."
+      },
+      {
+        "t": "Generate your GIF",
+        "d": "Click export to instantly compile your images into a high-quality looping GIF."
+      }
+    ],
+    "whyTitle": "Why Use Our Free Browser GIF Maker?",
+    "whyDesc": "Unlike cloud-based tools that limit your file sizes and put your photos at risk on remote servers, Clipy Studio utilizes local WebAssembly power. This guarantees you can combine PNG to GIF or JPG to GIF instantly, with zero wait times for uploads and absolute data privacy.",
+    "faqs": [
+      {
+        "q": "Can I combine JPG to GIF formats easily?",
+        "a": "Absolutely. Our tool allows you to upload multiple JPG files and stitch them together into a single, seamless animated GIF."
+      },
+      {
+        "q": "How do I control the speed of my animation?",
+        "a": "Once your images are loaded, you can adjust frame delay settings in the control panel. A lower delay speeds up the animation, while a higher delay slows it down."
+      },
+      {
+        "q": "Is it safe to combine PNG to GIF using personal photos?",
+        "a": "Yes, it is 100% safe. Since our GIF Maker Online runs entirely locally in your web browser, your personal photos are never uploaded or stored on any external servers."
+      }
+    ]
+  },
+  "video-cutter": {
+    "slug": "/video-cutter",
+    "title": "Fast Video Cutter Online (No Uploads) | Clipy Studio",
+    "desc": "Trim MP4 online instantly with our secure Video Cutter Online. Use our millisecond video trimmer to cut video without re-encoding. 100% free and private!",
+    "h1": "Fast Video Cutter Online",
+    "intro": "Need to trim out unwanted footage? Our blazing-fast Video Cutter Online lets you slice your clips with pinpoint precision. Because everything processes locally on your device, you can trim your videos privately without waiting for massive files to upload.",
+    "howToTitle": "How to Trim MP4 Online",
+    "howTo": [
+      {
+        "t": "Add your video",
+        "d": "Drag your video file into our secure browser editor."
+      },
+      {
+        "t": "Set your trim points",
+        "d": "Use the intuitive sliders or type exact timestamps into our millisecond video trimmer for perfect accuracy."
+      },
+      {
+        "t": "Export your clip",
+        "d": "Save your newly trimmed video instantly to your device."
+      }
+    ],
+    "whyTitle": "Why Use Our Fast Video Cutter?",
+    "whyDesc": "Time is money, and waiting for a 1GB video file to upload to a cloud server just to trim 5 seconds off the end is frustrating. Clipy Studio operates entirely offline via WebAssembly. This makes it an incredibly fast video cutter, allowing you to slice heavy files instantly and completely privately.",
+    "faqs": [
+      {
+        "q": "Can I cut video without re-encoding to preserve quality?",
+        "a": "Yes! When the original format allows, our tool can cut video without re-encoding, meaning you lose zero visual quality and the export happens almost instantly."
+      },
+      {
+        "q": "How precise is this trimmer?",
+        "a": "Very precise. Our platform features a millisecond video trimmer, allowing you to select the exact start and end frames for the perfect cut."
+      },
+      {
+        "q": "Is there a file size limit to trim MP4 online?",
+        "a": "No. Because our fast video cutter runs locally on your own computer hardware, there are no artificial file size limits or paywalls blocking your workflow."
+      }
+    ]
+  },
+  "video-to-mp4": {
+    "slug": "/video-to-mp4",
+    "title": "Free Video to MP4 Converter (Browser-Based) | Clipy Studio",
+    "desc": "Convert video formats online free with our lightning-fast Video to MP4 Converter. Securely convert MOV to MP4 or WebM to MP4 instantly. No server uploads!",
+    "h1": "Fast Video to MP4 Converter",
+    "intro": "Ensure your videos play everywhere by switching them to the universal MP4 format. Our free Video to MP4 converter runs completely in your browser, meaning you can securely convert video formats online free—without waiting in long server queues.",
+    "howToTitle": "How to Convert Video Formats Online Free",
+    "howTo": [
+      {
+        "t": "Import your file",
+        "d": "Drop your unsupported video format directly into the workspace."
+      },
+      {
+        "t": "Review settings",
+        "d": "Ensure your video is ready for processing."
+      },
+      {
+        "t": "Convert to MP4",
+        "d": "Click export, and our fast H.264 converter will instantly process the file on your device."
+      }
+    ],
+    "whyTitle": "Why Use Our Browser-Based MP4 Converter?",
+    "whyDesc": "Video conversion shouldn't compromise your privacy or your time. Built on powerful WebAssembly technology, our tool acts as a fast H.264 converter right in your browser. This means you can convert bulky MOV or WebM files immediately, keeping your personal footage 100% safe from cloud storage.",
+    "faqs": [
+      {
+        "q": "Can I convert MOV to MP4 shot on my iPhone?",
+        "a": "Yes! Our Video to MP4 Converter is perfect for Apple users who need to convert MOV to MP4 so their videos can be played smoothly on Windows or Android devices."
+      },
+      {
+        "q": "Does this tool convert WebM to MP4?",
+        "a": "Absolutely. If you have downloaded a WebM file from a browser or stream, you can quickly drop it into our tool to convert WebM to MP4 for offline viewing or editing."
+      },
+      {
+        "q": "Is this fast H.264 converter completely free?",
+        "a": "Yes, you can convert video formats online free with no hidden fees, no watermarks, and no mandatory sign-ups."
+      }
+    ]
+  }
+}
