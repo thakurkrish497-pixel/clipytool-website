@@ -194,6 +194,7 @@ async function processExtract() {
       
       await ffmpeg.exec([
       '-threads', '4',
+      '-threads', '4',
         '-i', inputName,
         '-ss', t,
         '-vframes', '1',
@@ -226,6 +227,7 @@ async function processExtract() {
       const outPattern = `img_%04d.${format}`;
 
       await ffmpeg.exec([
+      '-threads', '4',
       '-threads', '4',
         '-ss', tStart.toString(),
         '-t', duration.toString(),

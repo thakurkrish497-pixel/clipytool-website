@@ -167,6 +167,9 @@ async function processVideo() {
       '-i', inputName,
       '-c:v', 'libvpx-vp9',
       '-b:v', bv,
+      '-threads', '4',
+      '-deadline', 'realtime',
+      '-cpu-used', '4',
       '-c:a', 'libopus',
       '-b:a', '128k',
       outName

@@ -190,6 +190,7 @@ async function processGIF() {
       '-threads', '4',
       '-framerate', fps.toString(),
       '-i', 'img%03d.png',
+      '-threads', '4',
       '-filter_complex', filterComplex,
       'output.gif'
     ]);
