@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>500 - Internal Server Error | Clipy Studio</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" />
+  <link rel="stylesheet" href="/src/shared.css" />
+  <link rel="stylesheet" href="/src/landing.css" />
+  <style>
+    .error-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .error-code {
+      font-size: clamp(4rem, 15vw, 10rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .error-message {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+    }
+
+    .error-desc {
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 500px;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NF7ESZWN6G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NF7ESZWN6G');
+  </script>
+</head>
+
+<body>
+
+  <!-- Ambient Mesh Gradient Background -->
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+    <div class="mesh-blob blob-4"></div>
+  </div>
+
+  <main class="error-hero">
+    <h1 class="error-code">500<span class="dot">.</span></h1>
+    <h2 class="error-message">Internal Server Error</h2>
+    <p class="error-desc">Oops! Something went wrong on our end. Please try again later.</p>
+    
+    <a href="/" class="back-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Home
+    </a>
+  </main>
+
+  <script type="module" src="/src/landing.js"></script>
+</body>
+
+</html>
