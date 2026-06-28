@@ -1747,3 +1747,22 @@ input[type="file"] {
     padding: 20px;
   }
 }
+
+.nav__link--coffee {
+  background: #FFDD00;
+  color: #000 !important;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(255, 221, 0, 0.2);
+  text-decoration: none;
+}
+.nav__link--coffee:hover {
+  background: #FFEA00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 221, 0, 0.4);
+}
