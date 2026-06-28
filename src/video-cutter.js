@@ -143,12 +143,20 @@ async function processCut() {
   if (!state.videoFile || state.isProcessing) return;
   state.isProcessing = true;
   updateExportState();
-  dom.exportBtnText.textContent = 'Loading...';
+  if (!state.ffmpegLoaded) {
+    dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+  } else {
+    dom.exportBtnText.textContent = 'Preparing File...';
+  }
   dom.exportFill.style.width = '0%';
   dom.exportFill.classList.add('active');
 
   try {
-    if (!state.ffmpegLoaded) await preloadFFmpeg();
+    if (!state.ffmpegLoaded) {
+      dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+      await preloadFFmpeg();
+      dom.exportBtnText.textContent = 'Preparing File...';
+    }
     const ffmpeg = state.ffmpeg;
 
     ffmpeg.on('progress', ({ progress }) => {

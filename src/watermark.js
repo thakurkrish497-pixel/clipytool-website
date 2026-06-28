@@ -481,13 +481,18 @@ async function processAndDownload() {
   if (state.isProcessing || !state.videoFile) return;
   state.isProcessing = true;
   dom.btnExport.disabled = true;
-  dom.exportBtnText.textContent = 'Loading FFmpeg…';
+  if (!state.ffmpegLoaded) {
+    dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+  } else {
+    dom.exportBtnText.textContent = 'Preparing File...';
+  }
   dom.exportFill.style.width = '0%';
   dom.exportFill.classList.add('active');
 
   try {
     // Ensure FFmpeg is loaded
     if (!state.ffmpegLoaded) {
+      dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
       await preloadFFmpeg();
       if (!state.ffmpegLoaded) throw new Error('FFmpeg failed to load');
     }

@@ -141,12 +141,20 @@ async function processGIF() {
   if (state.images.length < 2 || state.isProcessing) return;
   state.isProcessing = true;
   updateExportState();
-  dom.exportBtnText.textContent = 'Loading FFmpeg...';
+  if (!state.ffmpegLoaded) {
+    dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+  } else {
+    dom.exportBtnText.textContent = 'Preparing File...';
+  }
   dom.exportFill.style.width = '0%';
   dom.exportFill.classList.add('active');
 
   try {
-    if (!state.ffmpegLoaded) await preloadFFmpeg();
+    if (!state.ffmpegLoaded) {
+      dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+      await preloadFFmpeg();
+      dom.exportBtnText.textContent = 'Preparing File...';
+    }
     const ffmpeg = state.ffmpeg;
 
     ffmpeg.on('progress', ({ progress }) => {
@@ -155,7 +163,11 @@ async function processGIF() {
       dom.exportBtnText.textContent = `Processing... ${p}%`;
     });
 
-    dom.exportBtnText.textContent = 'Loading images...';
+    if (!state.ffmpegLoaded) {
+    dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+  } else {
+    dom.exportBtnText.textContent = 'Preparing File...';
+  }
     
     // Write all images sequentially: img001.jpg, img002.jpg
     for (let i = 0; i < state.images.length; i++) {

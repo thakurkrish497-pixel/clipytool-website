@@ -204,7 +204,11 @@ async function processResize() {
   dom.exportFill.classList.add('active');
 
   try {
-    if (!state.ffmpegLoaded) await preloadFFmpeg();
+    if (!state.ffmpegLoaded) {
+      dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+      await preloadFFmpeg();
+      dom.exportBtnText.textContent = 'Preparing File...';
+    }
     const ffmpeg = state.ffmpeg;
 
     ffmpeg.on('progress', ({ progress }) => {
