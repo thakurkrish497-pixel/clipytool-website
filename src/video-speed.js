@@ -187,11 +187,13 @@ async function processSpeed() {
       args.push('-filter:a', atempo);
     }
     
-    args.push(outputName);
+    args.push('-c:v', 'libx264', '-preset', 'ultrafast', '-threads', '4', outputName);
 
     dom.exportBtnText.textContent = 'Changing Speed...';
 
     await ffmpeg.exec(args);
+    dom.exportFill.style.width = '100%';
+    dom.exportBtnText.textContent = 'Processing... 100%';
 
     const data = await ffmpeg.readFile(outputName);
     const blob = new Blob([data.buffer], { type: state.videoFile.type || 'video/mp4' });

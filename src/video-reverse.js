@@ -168,6 +168,8 @@ async function processVideo() {
     args.push('-c:v', 'libx264', '-threads', '4', '-preset', 'ultrafast', outName);
 
     await ffmpeg.exec(args);
+    dom.exportFill.style.width = '100%';
+    dom.exportBtnText.textContent = 'Processing... 100%';
 
     dom.exportBtnText.textContent = 'Saving...';
     const data = await ffmpeg.readFile(outName);
