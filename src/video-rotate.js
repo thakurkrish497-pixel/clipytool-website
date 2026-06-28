@@ -92,6 +92,7 @@ function loadVideo(file) {
     dom.dropzoneVid.style.display = 'none';
     dom.fileInfoVid.style.display = 'flex';
     dom.videoEmpty.style.display = 'none';
+    dom.videoPlayer.style.display = 'block';
     dom.previewWrapper.style.display = 'flex';
     dom.videoControls.style.display = 'flex';
 
