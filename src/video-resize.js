@@ -172,10 +172,11 @@ async function preloadFFmpeg() {
   if (state.ffmpegLoaded) return;
   try {
     state.ffmpeg = new FFmpeg();
-    const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm';
+    const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
     await state.ffmpeg.load({
       coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
       wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+      workerURL: await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript'),
     });
     state.ffmpegLoaded = true;
   } catch (err) {
@@ -227,6 +228,8 @@ async function processResize() {
       '-vf', `scale=${targetW}:${targetH}`,
       '-c:v', 'libx264',
       '-c:a', 'copy',
+      '-threads', '4',
+      '-preset', 'ultrafast',
       outName
     ]);
 

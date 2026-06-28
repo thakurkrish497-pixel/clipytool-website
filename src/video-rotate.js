@@ -157,10 +157,11 @@ async function preloadFFmpeg() {
   if (state.ffmpegLoaded) return;
   try {
     state.ffmpeg = new FFmpeg();
-    const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm';
+    const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
     await state.ffmpeg.load({
       coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
       wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+      workerURL: await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript'),
     });
     state.ffmpegLoaded = true;
   } catch (err) {
@@ -214,7 +215,7 @@ async function processVideo() {
     let args = ['-i', inputName];
     if (vf.length > 0) {
       args.push('-vf', vf.join(','));
-      args.push('-c:v', 'libx264');
+      args.push('-c:v', 'libx264', '-threads', '4', '-preset', 'ultrafast');
       args.push('-c:a', 'copy');
     } else {
       // If nothing selected, just copy

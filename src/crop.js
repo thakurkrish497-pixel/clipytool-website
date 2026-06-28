@@ -379,11 +379,12 @@ async function loadFFmpeg() {
       console.log('[ffmpeg]', message);
     });
 
-    const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm';
+    const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
 
     await ffmpeg.load({
       coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
       wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+      workerURL: await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript'),
     });
 
     state.ffmpeg = ffmpeg;
@@ -458,6 +459,8 @@ async function processVideo() {
       '-i', inputName,
       '-vf', cropFilter,
       '-c:a', 'copy',
+      '-threads', '4',
+      '-preset', 'ultrafast',
       '-movflags', '+faststart',
       'output.mp4',
     ]);
