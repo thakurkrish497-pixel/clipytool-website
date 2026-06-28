@@ -1616,9 +1616,9 @@ input[type="file"] {
 }
 
 .feedback-modal__content {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  background: var(--bg-deep);
+  border: 1px solid var(--border-card);
+  border-radius: var(--r-card);
   width: 100%;
   max-width: 480px;
   padding: 24px;
@@ -1683,8 +1683,8 @@ input[type="file"] {
 .feedback-label textarea,
 .feedback-label input {
   background: rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+  border-radius: var(--r-sm);
   padding: 12px;
   color: var(--text-primary);
   font-family: inherit;
@@ -1696,7 +1696,7 @@ input[type="file"] {
 .feedback-label textarea:focus,
 .feedback-label input:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--accent-indigo);
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
 }
 
@@ -1712,10 +1712,10 @@ input[type="file"] {
 
 .feedback-submit {
   margin-top: 8px;
-  background: var(--accent);
+  background: var(--accent-indigo);
   color: #fff;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--r-sm);
   padding: 14px;
   font-size: 1rem;
   font-weight: 600;
@@ -1724,7 +1724,7 @@ input[type="file"] {
 }
 
 .feedback-submit:hover {
-  background: var(--accent-hover);
+  background: var(--accent-violet);
   transform: translateY(-2px);
 }
 
