@@ -72,7 +72,19 @@ function loadVideo(file) {
   if (state.videoURL) URL.revokeObjectURL(state.videoURL);
   state.videoURL = URL.createObjectURL(file);
 
-  dom.videoPlayer.src = state.videoURL;
+    dom.videoPlayer.src = state.videoURL;
+  dom.videoPlayer.load();
+  dom.videoPlayer.onerror = () => {
+    if(dom.fileNameVid) dom.fileNameVid.textContent = file.name;
+    if(dom.fileDetailsVid) dom.fileDetailsVid.textContent = 'Preview unavailable for this format';
+    if(dom.dropzoneVid) dom.dropzoneVid.style.display = 'none';
+    if(dom.fileInfoVid) dom.fileInfoVid.style.display = 'flex';
+    if(dom.videoEmpty) dom.videoEmpty.style.display = 'none';
+    dom.videoPlayer.style.display = 'none';
+    if(dom.videoControls) dom.videoControls.style.display = 'none';
+    if(typeof updateExportState === 'function') updateExportState();
+    if(typeof preloadFFmpeg === 'function') preloadFFmpeg();
+  };
   dom.videoPlayer.onloadedmetadata = () => {
     dom.fileNameVid.textContent = file.name;
     dom.fileDetailsVid.textContent = `${(file.size / 1024 / 1024).toFixed(1)} MB`;
