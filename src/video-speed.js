@@ -143,8 +143,7 @@ async function preloadFFmpeg() {
     }
     await state.ffmpeg.load(loadOpts);
     state.ffmpegLoaded = true;
-  } catch (err) {
-    console.error('FFmpeg load error:', err);
+  } catch (err) { console.error('FFmpeg load error:', err); alert(Load Error: );
   }
 }
 
@@ -250,8 +249,7 @@ async function processSpeed() {
       updateExportState();
     }, 3000);
 
-  } catch (err) {
-    console.error(err);
+  } catch (err) { console.error(err); alert(Error: );
     dom.exportBtnText.textContent = 'Error - try again';
     dom.exportFill.classList.remove('active');
     state.isProcessing = false;
