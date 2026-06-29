@@ -512,10 +512,23 @@ async function processAndDownload() {
     const ffmpeg = state.ffmpeg;
 
     // Progress listener
+    let processStartTime = Date.now();
     ffmpeg.on('progress', ({ progress }) => {
       const pct = Math.min(Math.round(progress * 100), 100);
       dom.exportFill.style.width = pct + '%';
-      dom.exportBtnText.textContent = `Processing… ${pct}%`;
+      
+      let etaStr = '';
+      if (progress > 0.01 && progress < 1) {
+          const elapsed = (Date.now() - processStartTime) / 1000;
+          const totalEstimated = elapsed / progress;
+          const remaining = totalEstimated - elapsed;
+          if (remaining > 0 && remaining < 7200) { // cap at 2 hours for sanity
+              const mins = Math.floor(remaining / 60);
+              const secs = Math.floor(remaining % 60);
+              etaStr = ` (ETA: ${mins > 0 ? mins + 'm ' : ''}${secs}s)`;
+          }
+      }
+      dom.exportBtnText.textContent = `Processing… ${pct}%${etaStr}`;
     });
 
     // Write input video

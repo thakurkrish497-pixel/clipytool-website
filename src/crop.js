@@ -442,9 +442,23 @@ async function processVideo() {
     const ffmpegInst = state.ffmpeg;
 
     // Set up progress tracking
+    let processStartTime = Date.now();
     ffmpegInst.on('progress', ({ progress }) => {
       const pct = Math.min(Math.round(progress * 100), 100);
-      setExportState('processing', `${pct}%`, pct);
+      
+      let etaStr = '';
+      if (progress > 0.01 && progress < 1) {
+          const elapsed = (Date.now() - processStartTime) / 1000;
+          const totalEstimated = elapsed / progress;
+          const remaining = totalEstimated - elapsed;
+          if (remaining > 0 && remaining < 7200) {
+              const mins = Math.floor(remaining / 60);
+              const secs = Math.floor(remaining % 60);
+              etaStr = ` (ETA: ${mins > 0 ? mins + 'm ' : ''}${secs}s)`;
+          }
+      }
+      
+      setExportState('processing', `${pct}%${etaStr}`, pct);
     });
 
     // Write input file

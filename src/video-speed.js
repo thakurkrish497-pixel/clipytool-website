@@ -167,10 +167,23 @@ async function processSpeed() {
     }
     const ffmpeg = state.ffmpeg;
 
+    let processStartTime = Date.now();
     ffmpeg.on('progress', ({ progress }) => {
       const p = Math.min(Math.round(progress * 100), 100);
       dom.exportFill.style.width = p + '%';
-      dom.exportBtnText.textContent = `Processing... ${p}%`;
+      
+      let etaStr = '';
+      if (progress > 0.01 && progress < 1) {
+          const elapsed = (Date.now() - processStartTime) / 1000;
+          const totalEstimated = elapsed / progress;
+          const remaining = totalEstimated - elapsed;
+          if (remaining > 0 && remaining < 7200) { // cap at 2 hours for sanity
+              const mins = Math.floor(remaining / 60);
+              const secs = Math.floor(remaining % 60);
+              etaStr = ` (ETA: ${mins > 0 ? mins + 'm ' : ''}${secs}s)`;
+          }
+      }
+      dom.exportBtnText.textContent = `Processing... ${p}%${etaStr}`;
     });
 
     const ext = state.videoFile.name.split('.').pop().toLowerCase() || 'mp4';
