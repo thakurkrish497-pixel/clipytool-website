@@ -166,6 +166,32 @@ async function processLoop() {
   if (!state.videoFile || state.isProcessing) return;
   
   const loops = parseInt(dom.loopCount ? dom.loopCount.value : '2');
+
+  state.isProcessing = true;
+  updateExportState();
+  dom.exportFill.style.width = '0%';
+  dom.exportFill.classList.add('active');
+
+  try {
+    if (!state.ffmpegLoaded) {
+      dom.exportBtnText.textContent = 'Downloading Engine (~30s)...';
+      await preloadFFmpeg();
+      dom.exportBtnText.textContent = 'Preparing File...';
+    }
+    const ffmpeg = state.ffmpeg;
+
+    ffmpeg.on('progress', ({ progress }) => {
+      const p = Math.min(Math.round(progress * 100), 100);
+      dom.exportFill.style.width = p + '%';
+      dom.exportBtnText.textContent = `Processing... ${p}%`;
+    });
+
+    const ext = state.videoFile.name.split('.').pop().toLowerCase() || 'mp4';
+    const inputName = `input.${ext}`;
+    const outName = `output.mp4`; 
+    
+    dom.exportBtnText.textContent = 'Reading file...';
+    await ffmpeg.writeFile(inputName, await fetchFile(state.videoFile));
     
     // Create concat string
     let concatStr = '';
