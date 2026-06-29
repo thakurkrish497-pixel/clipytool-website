@@ -212,7 +212,7 @@ async function processCompress() {
     const a = document.createElement('a');
     a.href = url;
     const baseName = state.videoFile.name.replace(/\.[^/.]+$/, '');
-    a.download = `${baseName}_resized.mp4`;
+    a.download = `${baseName}_compressed.mp4`;
     a.click();
 
     await ffmpeg.deleteFile(inputName);
@@ -236,7 +236,7 @@ async function processCompress() {
     dom.exportBtnText.textContent = 'Error - try again';
     dom.exportFill.classList.remove('active');
     state.isProcessing = false;
-    setTimeout(() => { dom.exportBtnText.textContent = 'Resize Video'; updateExportState(); }, 3000);
+    setTimeout(() => { dom.exportBtnText.textContent = 'Compress Video'; updateExportState(); }, 3000);
   }
 }
 

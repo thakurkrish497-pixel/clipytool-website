@@ -218,7 +218,7 @@ async function processLoop() {
     const a = document.createElement('a');
     a.href = url;
     const baseName = state.videoFile.name.replace(/\.[^/.]+$/, '');
-    a.download = `${baseName}_resized.mp4`;
+    a.download = `${baseName}_looped.mp4`;
     a.click();
 
     await ffmpeg.deleteFile(inputName);
@@ -229,7 +229,7 @@ async function processLoop() {
     dom.exportFill.style.background = 'rgba(239, 68, 68, 0.2)';
 
     setTimeout(() => {
-      dom.exportBtnText.textContent = 'Compress Video';
+      dom.exportBtnText.textContent = 'Loop Video';
       dom.exportFill.style.width = '0%';
       dom.exportFill.style.background = '';
       dom.exportFill.classList.remove('active');
@@ -242,7 +242,7 @@ async function processLoop() {
     dom.exportBtnText.textContent = 'Error - try again';
     dom.exportFill.classList.remove('active');
     state.isProcessing = false;
-    setTimeout(() => { dom.exportBtnText.textContent = 'Resize Video'; updateExportState(); }, 3000);
+    setTimeout(() => { dom.exportBtnText.textContent = 'Loop Video'; updateExportState(); }, 3000);
   }
 }
 
