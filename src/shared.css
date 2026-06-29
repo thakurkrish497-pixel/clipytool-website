@@ -870,22 +870,68 @@ input[type="file"] {
 .footer {
   position: relative;
   z-index: 1;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 40px 20px;
+  flex-shrink: 0;
+  margin-top: 40px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 12px 40px 18px;
-  flex-shrink: 0;
+  gap: 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
 }
 
-.footer__lock {
+.footer-bottom__lock {
   color: var(--text-tertiary);
   opacity: 0.6;
   display: flex;
 }
 
-.footer p {
-  font-size: 0.68rem;
+.footer-bottom p {
+  font-size: 0.75rem;
   color: var(--text-tertiary);
   font-weight: 500;
 }

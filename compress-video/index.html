@@ -4,10 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mute Video Online (Remove Audio Track) | Clipy Studio</title>
-  <meta name="description"
-    content="Silence video online instantly for free. Remove background noise and delete audio track from video securely in your browser. 100% private, no uploads!" />
-  <link rel="canonical" href="https://clipystudio.com/mute-video/" />
+  <title>Compress Video Online (Reduce File Size Free) | Clipy Studio</title>
+  <meta name="description" content="Quickly compress video online and reduce video file size for free. Perfect for email, Discord, or social media. Runs locally in your browser." />
+  <link rel="canonical" href="https://clipystudio.com/compress-video/" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,15 +14,15 @@
   <link rel="icon" type="image/png" href="/clipy-logo.png" />
   
   <link rel="stylesheet" href="/src/shared.css" />
-  <link rel="stylesheet" href="/src/mute-video.css" />
+  <link rel="stylesheet" href="/src/compress-video.css" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Clipy Studio Mute Video",
-    "url": "https://clipystudio.com/mute-video/",
-    "description": "Mute videos securely in your browser without uploading them.",
+    "name": "Clipy Studio Video Compressor",
+    "url": "https://clipystudio.com/video-resize/",
+    "description": "Compress your videos entirely in the browser.",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "All"
   }
@@ -36,26 +35,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does this tool completely silence video online?",
+      "name": "Can I downscale video size to save storage space?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. It completely strips the audio channels from your file, ensuring absolute silence for your final export."
+        "text": "Yes! If your file is too large, you can easily downscale video size by reducing the resolution (e.g., from 4K to 1080p)."
       }
     },
     {
       "@type": "Question",
-      "name": "Will I lose video quality when I remove background noise?",
+      "name": "Is it possible to upscale video here?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not at all. Our tool simply deletes the audio stream, leaving your original video quality completely untouched."
+        "text": "Absolutely. You can upscale video by manually entering larger dimensions into the width and height boxes, though we recommend maintaining the original aspect ratio to avoid stretching."
       }
     },
     {
       "@type": "Question",
-      "name": "Is it safe to delete audio track from video files here?",
+      "name": "Is this the best way to resize for social media?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "100% safe. Your video never leaves your device, so you can mute video online with complete peace of mind."
+        "text": "Yes. By letting you manually set pixel dimensions, you can perfectly resize for social media platforms like Instagram, TikTok, or YouTube Shorts."
       }
     }
   ]
@@ -73,14 +72,14 @@
   </script>
 
   <!-- Social Media & Open Graph Tags -->
-  <meta property="og:title" content="Mute Video Online (Remove Audio Track) | Clipy Studio" />
-  <meta property="og:description" content="Silence video online instantly for free. Remove background noise and delete audio track from video securely in your browser. 100% private, no uploads!" />
+  <meta property="og:title" content="Compress Video Online (Reduce File Size Free) | Clipy Studio" />
+  <meta property="og:description" content="Quickly compress video online and reduce video file size for free. Perfect for email, Discord, or social media. Runs locally in your browser." />
   <meta property="og:image" content="https://clipystudio.com/og-image.png" />
-  <meta property="og:url" content="https://clipystudio.com/mute-video/" />
+  <meta property="og:url" content="https://clipystudio.com/compress-video/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mute Video Online (Remove Audio Track) | Clipy Studio" />
-  <meta name="twitter:description" content="Silence video online instantly for free. Remove background noise and delete audio track from video securely in your browser. 100% private, no uploads!" />
+  <meta name="twitter:title" content="Compress Video Online (Reduce File Size Free) | Clipy Studio" />
+  <meta name="twitter:description" content="Quickly compress video online and reduce video file size for free. Perfect for email, Discord, or social media. Runs locally in your browser." />
   <meta name="twitter:image" content="https://clipystudio.com/og-image.png" />
 </head>
 
@@ -141,14 +140,14 @@
     });
   </script>
 
-  <main class="bento mute-bento">
+  <main class="bento compress-bento">
 
     <!-- Card 1: Video Preview -->
-    <section class="card card--mute-preview">
+    <section class="card card--resize-preview">
       <div class="card__header">
         <div class="card__title-group">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M15 3v18"/><path d="M3 15h12"/>
           </svg>
           <h2 class="card__title">Video Preview</h2>
         </div>
@@ -162,8 +161,7 @@
           </div>
           <p>No video selected</p>
         </div>
-        <!-- We explicitly mute the preview player for this tool -->
-        <video id="videoPlayer" class="video-stage__player" playsinline muted></video>
+        <video id="videoPlayer" class="video-stage__player" playsinline></video>
         
         <div class="video-stage__controls" id="videoControls">
           <button class="btn-play-pause" id="btnPlayPause">
@@ -182,7 +180,7 @@
     </section>
 
     <!-- Card 2: Upload -->
-    <section class="card card--mute-upload">
+    <section class="card card--resize-upload">
       <div class="card__header">
         <div class="card__title-group">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -204,27 +202,31 @@
       <div class="file-info" id="fileInfoVid">
         <div class="file-info__details">
           <span class="file-info__name" id="fileNameVid">video.mp4</span>
-          <span class="file-info__meta" id="fileDetailsVid">0 MB</span>
+          <span class="file-info__meta" id="fileDetailsVid">0×0 · 0 MB</span>
         </div>
         <button class="btn-change-file" id="btnChangeVid">Change</button>
       </div>
     </section>
 
-    <!-- Card 3: Info & Speed -->
-    <section class="card card--mute-settings">
+    <!-- Card 3: Compression Settings -->
+    <section class="card card--resize-settings">
       <div class="card__header">
         <div class="card__title-group">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            <polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/>
           </svg>
-          <h2 class="card__title">Details</h2>
+          <h2 class="card__title">Compression Quality</h2>
         </div>
       </div>
       
-      <div class="mute-controls">
-        <div class="success-alert">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <span>Muting is processed instantly without quality loss because the video stream is directly copied.</span>
+      <div class="resize-controls">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);">Quality Level (CRF)</label>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <input type="range" id="compressQuality" min="18" max="40" value="28" style="flex: 1;" />
+            <span id="qualityValue" style="font-family: monospace; font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">28</span>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-tertiary); margin: 0;">Higher value = Smaller file size but lower quality (Default: 28)</p>
         </div>
       </div>
     </section>
@@ -243,7 +245,7 @@
           <div class="btn-export__fill" id="exportFill"></div>
           <span class="btn-export__content" id="exportBtnContent">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span id="exportBtnText">Mute Video</span>
+            <span id="exportBtnText">Compress Video</span>
           </span>
         </button>
       </div>
@@ -259,17 +261,17 @@
 
   <!-- SEO Content -->
   <article class="seo-content">
-    <h2>Mute Video Online</h2>
-    <p>Got distracting background sounds in your footage? Our free browser tool lets you instantly remove background noise and mute video online. Because it processes locally on your device, you can delete audio tracks privately and securely.</p>
+    <h2>Compress Video Online (Fast & Private)</h2>
+    <p>Need to reduce a video file size for Discord, email, or social media? Our free browser tool lets you easily compress video online in seconds. Because it runs locally on your device, you can compress footage without any slow server uploads or privacy risks.</p>
     
     <div class="seo-features">
       <div class="feature-box">
-        <h3>How to Delete Audio Track from Video</h3>
-        <p>[object Object] [object Object] [object Object]</p>
+        <h3>How to Compress Video Online</h3>
+        <p>Upload your file, adjust the quality slider, and click compress. It's that easy to reduce video file sizes.</p>
       </div>
       <div class="feature-box">
-        <h3>Why Mute Video Online With Clipy Studio?</h3>
-        <p>Uploading a personal video to the cloud just to remove background noise is a massive privacy risk and a waste of time. Our tool utilizes local WebAssembly processing to safely delete audio track from video files. It guarantees absolute privacy and lightning-fast exports.</p>
+        <h3>Why Use Our Free Video Compressor?</h3>
+        <p>Large video files take forever to upload to standard cloud compressors. Clipy Studio bypasses the cloud entirely using WebAssembly. This allows you to compress video online instantly using your own hardware, guaranteeing absolute privacy and blazing-fast processing speeds.</p>
       </div>
     </div>
   </article>
@@ -280,16 +282,16 @@
     <div class="faq-grid">
       
       <details class="faq-item">
-        <summary>Does this tool completely silence video online? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <p>Yes. It completely strips the audio channels from your file, ensuring absolute silence for your final export.</p>
+        <summary>Can I downscale video size to save storage space? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Yes! If your file is too large, you can easily downscale video size by reducing the resolution (e.g., from 4K to 1080p).</p>
       </details>
       <details class="faq-item">
-        <summary>Will I lose video quality when I remove background noise? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <p>Not at all. Our tool simply deletes the audio stream, leaving your original video quality completely untouched.</p>
+        <summary>Is it possible to upscale video here? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Absolutely. You can upscale video by manually entering larger dimensions into the width and height boxes, though we recommend maintaining the original aspect ratio to avoid stretching.</p>
       </details>
       <details class="faq-item">
-        <summary>Is it safe to delete audio track from video files here? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-        <p>100% safe. Your video never leaves your device, so you can mute video online with complete peace of mind.</p>
+        <summary>Is this the best way to resize for social media? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
+        <p>Yes. By letting you manually set pixel dimensions, you can perfectly resize for social media platforms like Instagram, TikTok, or YouTube Shorts.</p>
       </details>
     </div>
   </section>
@@ -339,7 +341,7 @@
     </div>
   </footer>
 
-  <script type="module" src="/src/mute-video.js"></script>
+  <script type="module" src="/src/compress-video.js"></script>
 
   <!-- Feedback System -->
   <button class="feedback-fab" id="feedbackFab" aria-label="Provide Feedback">
