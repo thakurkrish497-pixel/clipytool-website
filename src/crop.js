@@ -379,13 +379,17 @@ async function loadFFmpeg() {
       console.log('[ffmpeg]', message);
     });
 
-    const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
-
-    await ffmpeg.load({
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const coreName = isMobile ? 'core' : 'core-mt';
+    const baseURL = `https://unpkg.com/@ffmpeg/${coreName}@0.12.6/dist/esm`;
+    const loadOpts = {
       coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
       wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
-      workerURL: await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript'),
-    });
+    };
+    if (!isMobile) {
+      loadOpts.workerURL = await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript');
+    }
+    await ffmpeg.load(loadOpts);
 
     state.ffmpeg = ffmpeg;
     state.ffmpegLoaded = true;
