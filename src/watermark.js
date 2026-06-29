@@ -584,7 +584,7 @@ async function processAndDownload() {
       '-i', 'watermark.png',
       '-filter_complex', filterComplex,
       '-c:a', 'copy',
-      '-threads', '4',
+      -threads,
       '-preset', 'ultrafast',
       '-movflags', '+faststart',
       'output.mp4',

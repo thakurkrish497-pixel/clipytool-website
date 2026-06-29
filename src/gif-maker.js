@@ -200,10 +200,10 @@ async function processGIF() {
     dom.exportBtnText.textContent = 'Making GIF...';
 
     await ffmpeg.exec([
-      '-threads', '4',
+      -threads,
       '-framerate', fps.toString(),
       '-i', 'img%03d.png',
-      '-threads', '4',
+      -threads,
       '-filter_complex', filterComplex,
       'output.gif'
     ]);

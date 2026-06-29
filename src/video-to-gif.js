@@ -234,11 +234,11 @@ async function processGIF() {
     dom.exportBtnText.textContent = 'Converting... 0%';
 
     await ffmpeg.exec([
-      '-threads', '4',
+      -threads,
       '-ss', tStart.toString(),
       '-t', duration.toString(),
       '-i', 'input.mp4',
-      '-threads', '4',
+      -threads,
       '-filter_complex', filterComplex,
       'output.gif'
     ]);

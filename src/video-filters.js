@@ -285,7 +285,7 @@ async function processVideo() {
     let args = ['-i', inputName];
     if (vf.length > 0) {
       args.push('-vf', vf.join(','));
-      args.push('-c:v', 'libx264', '-threads', '4', '-preset', 'ultrafast');
+      args.push('-c:v', 'libx264', -threads, '-preset', 'ultrafast');
       args.push('-c:a', 'copy');
     } else {
       // If nothing selected, just copy

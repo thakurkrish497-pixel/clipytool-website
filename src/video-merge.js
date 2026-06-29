@@ -179,7 +179,7 @@ async function processMerge() {
     
     // Use concat demuxer (requires same codecs/resolutions)
     await ffmpeg.exec([
-      '-threads', '4',
+      -threads,
       '-f', 'concat',
       '-safe', '0',
       '-i', 'list.txt',

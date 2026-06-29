@@ -473,7 +473,7 @@ async function processVideo() {
       '-i', inputName,
       '-vf', cropFilter,
       '-c:a', 'copy',
-      '-threads', '4',
+      -threads,
       '-preset', 'ultrafast',
       '-movflags', '+faststart',
       'output.mp4',

@@ -140,7 +140,7 @@ async function processConversion() {
       '-c:v', 'libx264',
       '-preset', 'ultrafast',
       '-preset', preset,
-      '-threads', '4',
+      -threads,
       ...audio,
       outputName
     ]);

@@ -190,7 +190,7 @@ async function processVideo() {
       args.push('-an'); // drop audio
     }
     
-    args.push('-c:v', 'libx264', '-threads', '4', '-preset', 'ultrafast', outName);
+    args.push('-c:v', 'libx264', -threads, '-preset', 'ultrafast', outName);
 
     await ffmpeg.exec(args);
     dom.exportFill.style.width = '100%';

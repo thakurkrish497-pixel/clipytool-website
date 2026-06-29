@@ -257,7 +257,7 @@ async function processResize() {
       '-vf', `scale=${targetW}:${targetH}`,
       '-c:v', 'libx264',
       '-c:a', 'copy',
-      '-threads', '4',
+      -threads,
       '-preset', 'ultrafast',
       outName
     ]);

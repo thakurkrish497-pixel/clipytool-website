@@ -188,11 +188,11 @@ async function processVideo() {
     dom.exportBtnText.textContent = 'Encoding WebM...';
     
     await ffmpeg.exec([
-      '-threads', '4',
+      -threads,
       '-i', inputName,
       '-c:v', 'libvpx-vp9',
       '-b:v', bv,
-      '-threads', '4',
+      -threads,
       '-deadline', 'realtime',
       '-cpu-used', '4',
       '-c:a', 'libopus',

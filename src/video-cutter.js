@@ -204,7 +204,7 @@ async function processCut() {
 
     // -c copy allows fast stream copy without re-encoding
     await ffmpeg.exec([
-      '-threads', '4',
+      -threads,
       '-ss', tStart.toString(),
       '-i', inputName,
       '-t', duration.toString(),

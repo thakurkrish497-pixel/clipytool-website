@@ -212,7 +212,7 @@ async function processSpeed() {
       args.push('-filter:a', atempo);
     }
     
-    args.push('-c:v', 'libx264', '-preset', 'ultrafast', '-threads', '4', outputName);
+    args.push('-c:v', 'libx264', '-preset', 'ultrafast', -threads, outputName);
 
     dom.exportBtnText.textContent = 'Changing Speed...';
 
