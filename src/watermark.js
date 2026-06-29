@@ -588,9 +588,7 @@ async function processAndDownload() {
       '-i', 'input.mp4',
       '-i', 'watermark.png',
       '-filter_complex', filterComplex,
-      '-c:a', 'copy',
-      -threads,
-      '-preset', 'ultrafast',
+      '-c:a', 'copy', '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4', '-preset', 'ultrafast',
       '-movflags', '+faststart',
       'output.mp4',
     ]);

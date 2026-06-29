@@ -185,7 +185,7 @@ async function processVideo() {
     dom.exportBtnText.textContent = 'Removing audio...';
     
     await ffmpeg.exec([
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       '-i', inputName,
       '-c:v', 'copy',
       '-an',

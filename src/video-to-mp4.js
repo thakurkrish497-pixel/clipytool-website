@@ -144,7 +144,7 @@ async function processConversion() {
       '-c:v', 'libx264',
       '-preset', 'ultrafast',
       '-preset', preset,
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       ...audio,
       outputName
     ]);

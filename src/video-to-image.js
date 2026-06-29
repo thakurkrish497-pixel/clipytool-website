@@ -222,8 +222,8 @@ async function processExtract() {
       dom.exportBtnText.textContent = 'Extracting frame...';
       
       await ffmpeg.exec([
-      -threads,
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
         '-i', inputName,
         '-ss', t,
         '-vframes', '1',
@@ -256,8 +256,8 @@ async function processExtract() {
       const outPattern = `img_%04d.${format}`;
 
       await ffmpeg.exec([
-      -threads,
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
         '-ss', tStart.toString(),
         '-t', duration.toString(),
         '-i', inputName,

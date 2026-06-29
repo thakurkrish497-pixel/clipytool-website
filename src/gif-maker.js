@@ -204,10 +204,10 @@ async function processGIF() {
     dom.exportBtnText.textContent = 'Making GIF...';
 
     await ffmpeg.exec([
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       '-framerate', fps.toString(),
       '-i', 'img%03d.png',
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       '-filter_complex', filterComplex,
       'output.gif'
     ]);

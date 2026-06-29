@@ -476,9 +476,7 @@ async function processVideo() {
     await ffmpegInst.exec([
       '-i', inputName,
       '-vf', cropFilter,
-      '-c:a', 'copy',
-      -threads,
-      '-preset', 'ultrafast',
+      '-c:a', 'copy', '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4', '-preset', 'ultrafast',
       '-movflags', '+faststart',
       'output.mp4',
     ]);

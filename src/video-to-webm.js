@@ -192,11 +192,11 @@ async function processVideo() {
     dom.exportBtnText.textContent = 'Encoding WebM...';
     
     await ffmpeg.exec([
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       '-i', inputName,
       '-c:v', 'libvpx-vp9',
       '-b:v', bv,
-      -threads,
+      '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       '-deadline', 'realtime',
       '-cpu-used', '4',
       '-c:a', 'libopus',

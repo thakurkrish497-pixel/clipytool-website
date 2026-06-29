@@ -260,9 +260,7 @@ async function processResize() {
       '-i', inputName,
       '-vf', `scale=${targetW}:${targetH}`,
       '-c:v', 'libx264',
-      '-c:a', 'copy',
-      -threads,
-      '-preset', 'ultrafast',
+      '-c:a', 'copy', '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4', '-preset', 'ultrafast',
       outName
     ]);
 

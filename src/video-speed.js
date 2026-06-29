@@ -216,7 +216,7 @@ async function processSpeed() {
       args.push('-filter:a', atempo);
     }
     
-    args.push('-c:v', 'libx264', '-preset', 'ultrafast', -threads, outputName);
+    args.push('-c:v', 'libx264', '-preset', 'ultrafast', '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4', outputName);
 
     dom.exportBtnText.textContent = 'Changing Speed...';
 
