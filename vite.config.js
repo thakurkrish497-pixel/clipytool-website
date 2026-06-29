@@ -22,6 +22,8 @@ export default defineConfig({
         videoToWebm: resolve(__dirname, 'video-to-webm/index.html'),
         extractAudio: resolve(__dirname, 'extract-audio/index.html'),
         muteVideo: resolve(__dirname, 'mute-video/index.html'),
+        compressVideo: resolve(__dirname, 'compress-video/index.html'),
+        loopVideo: resolve(__dirname, 'loop-video/index.html'),
       },
     },
   },
