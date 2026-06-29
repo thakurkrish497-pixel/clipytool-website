@@ -137,7 +137,7 @@ async function preloadFFmpeg() {
     }
     await state.ffmpeg.load(loadOpts);
     state.ffmpegLoaded = true;
-  } catch (err) { console.error('FFmpeg load error:', err); alert(Load Error: );
+  } catch (err) { console.error('FFmpeg load error:', err); alert("Load Error: " + (err.message || err));
   }
 }
 
@@ -241,7 +241,7 @@ async function processGIF() {
       updateExportState();
     }, 3000);
 
-  } catch (err) { console.error(err); alert(Error: );
+  } catch (err) { console.error(err); alert("Error: " + (err.message || err));
     dom.exportBtnText.textContent = 'Error - try again';
     dom.exportFill.classList.remove('active');
     state.isProcessing = false;
