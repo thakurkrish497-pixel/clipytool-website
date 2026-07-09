@@ -4,67 +4,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>500 - Internal Server Error | Clipy Studio</title>
+  <title>About Us | Clipy Studio</title>
+  <meta name="description" content="Read the About Us for Clipy Studio, a free browser-based video editing platform." />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="/clipy-logo.png" />
   <link rel="stylesheet" href="/src/shared.css" />
   <link rel="stylesheet" href="/src/landing.css" />
+
   <style>
-    .error-hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    
-    .error-code {
-      font-size: clamp(4rem, 15vw, 10rem);
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-    }
-    
-    .error-message {
-      font-size: clamp(1.2rem, 3vw, 2rem);
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem 2rem;
       color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+    }
+    .legal-content h1 {
+      font-size: 2.5rem;
       margin-bottom: 2rem;
+      color: #fff;
     }
-
-    .error-desc {
-      color: rgba(255, 255, 255, 0.6);
-      max-width: 500px;
-      margin-bottom: 3rem;
-      line-height: 1.6;
+    .legal-content h2 {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
     }
-
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 1rem 2rem;
-      border-radius: 100px;
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
+    .legal-content p {
+      margin-bottom: 1.25rem;
     }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
+    .legal-content ul {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+    }
+    .legal-content li {
+      margin-bottom: 0.5rem;
+    }
+    .legal-content strong {
+      color: #fff;
     }
   </style>
 
@@ -79,9 +59,8 @@
   </script>
 </head>
 
-<body>
+<body class="has-nav">
 
-  <!-- Ambient Mesh Gradient Background -->
   <div class="mesh-bg" aria-hidden="true">
     <div class="mesh-blob blob-1"></div>
     <div class="mesh-blob blob-2"></div>
@@ -89,23 +68,24 @@
     <div class="mesh-blob blob-4"></div>
   </div>
 
-  <main class="error-hero">
-    <h1 class="error-code">500<span class="dot">.</span></h1>
-    <h2 class="error-message">Internal Server Error</h2>
-    <p class="error-desc">Oops! Something went wrong on our end. Please try again later.</p>
-    
-    <a href="/" class="back-btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <line x1="19" y1="12" x2="5" y2="12"></line>
-        <polyline points="12 19 5 12 12 5"></polyline>
-      </svg>
-      Back to Home
-    </a>
-  </main>
+  <nav class="nav">
+    <a href="/index.html" class="nav__logo">Clipy Studio<span class="dot">.</span></a>
+    <div class="nav__links">
+      <a href="/index.html" class="nav__link">Home</a>
+    </div>
+  </nav>
 
-  <script type="module" src="/src/landing.js"></script>
-  <footer class="footer">
+  <main class="legal-content">
+    <h1>About Us</h1>
+    <p><strong>Welcome to Clipy Studio — Your Browser's Best Friend for Video Editing.</strong></p>
+    <p>We believe that creativity shouldn't be bottlenecked by slow downloads, heavy software installations, or expensive subscriptions. Clipy Studio was born from a simple idea: video editing should be as fast and accessible as the web itself.</p>
+    <p>Whether you are a social media manager rushing to get a reel out, a modern content creator refining a vlog, or an editor who needs to make a quick adjustment on the fly, Clipy Studio is built for you. We provide a suite of powerful, instant video utilities—from speed adjustments and MP4 conversions to color grading and custom watermarks—all running entirely within your web browser.</p>
+    <h2>Innovation Built for Creators</h2>
+    <p>Our innovative technology leverages local browser processing, meaning your videos are edited right on your device. This guarantees lightning-fast performance, zero upload wait times, and maximum privacy. Your content stays exactly where it belongs: with you. By removing the need for clunky desktop applications, we give you the freedom to edit seamlessly on any device.</p>
+    <p>At Clipy Studio, our mission is to empower creators by eliminating friction. We are constantly iterating and expanding our tools to ensure you have everything you need to craft stunning videos, without the wait.</p>
+    <p>Create freely. Edit instantly. Welcome to the future of browser-based editing.</p>
+  </main>
+<footer class="footer">
     <div class="footer-container">
       <div class="footer-columns">
         <div class="footer-col">
@@ -152,5 +132,4 @@
     </div>
   </footer>
 </body>
-
 </html>
