@@ -518,8 +518,11 @@ async function processAndDownload() {
 
     // Progress listener
     let processStartTime = Date.now();
-    ffmpeg.on('progress', ({ progress }) => {
-      const pct = Math.min(Math.round(progress * 100), 100);
+    ffmpeg.on('progress', ({ progress, time }) => {
+      let pct = Math.min(Math.round(progress * 100), 100);
+      if (pct === 0 && time > 0 && dom.videoPlayer && dom.videoPlayer.duration) {
+        pct = Math.min(Math.round((time / 1000000) / dom.videoPlayer.duration * 100), 100);
+      }
       dom.exportFill.style.width = pct + '%';
       
       let etaStr = '';
@@ -585,6 +588,7 @@ async function processAndDownload() {
     dom.exportBtnText.textContent = 'Processing… 0%';
 
     await ffmpeg.exec([
+      '-y',
       '-i', 'input.mp4',
       '-i', 'watermark.png',
       '-filter_complex', filterComplex,

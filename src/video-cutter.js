@@ -176,8 +176,11 @@ async function processCut() {
     const ffmpeg = state.ffmpeg;
 
     let processStartTime = Date.now();
-    ffmpeg.on('progress', ({ progress }) => {
-      const p = Math.min(Math.round(progress * 100), 100);
+    ffmpeg.on('progress', ({ progress, time }) => {
+      let p = Math.min(Math.round(progress * 100), 100);
+      if (p === 0 && time > 0 && dom.videoPlayer && dom.videoPlayer.duration) {
+        p = Math.min(Math.round((time / 1000000) / dom.videoPlayer.duration * 100), 100);
+      }
       dom.exportFill.style.width = p + '%';
       
       let etaStr = '';
@@ -208,6 +211,7 @@ async function processCut() {
 
     // -c copy allows fast stream copy without re-encoding
     await ffmpeg.exec([
+      '-y',
       '-threads', /Mobi|Android/i.test(navigator.userAgent) ? '1' : '4',
       '-ss', tStart.toString(),
       '-i', inputName,
